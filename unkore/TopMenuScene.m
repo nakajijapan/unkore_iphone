@@ -55,12 +55,14 @@
 		[self addChild: label];
          */
 
+        /*
         // メニュー（中央）
         CCMenuItemImage* menuItemCenter = [CCMenuItemImage itemWithNormalImage:@"btn_unkore.png" 
                                                                  selectedImage:@"btn_unkore_touch.png" target:self selector:@selector(onManage:)];
         CCMenu*         menuCenter = [CCMenu menuWithItems:menuItemCenter, nil];
         menuCenter.position = ccp(screenSize.width / 2, 95);
         [self addChild:menuCenter z: 2];
+         */
         
         // メニュー(左右)
         CCMenuItemImage* menu1 = [CCMenuItemImage itemWithNormalImage:@"btn_game.png" selectedImage:@"btn_game_touch.png" target:self selector:@selector(onGame:)];
@@ -68,7 +70,8 @@
         
         CCMenu*         menu = [CCMenu menuWithItems:menu1, menu2, nil];
         menu.position = ccp(screenSize.width / 2, 70);
-        [menu alignItemsHorizontallyWithPadding: screenSize.width * 1.5 / 5];
+        //[menu alignItemsHorizontallyWithPadding: screenSize.width * 1.5 / 5];
+        [menu alignItemsHorizontallyWithPadding: screenSize.width / 6];
         [self addChild:menu z: 2];
         
         // 右下
