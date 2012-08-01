@@ -1741,6 +1741,48 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		65A9713515C8D02E000AFC6F /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: paperboy&co., Inc.";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"COCOS2D_DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "ウンコレ";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2AFC211-74CB-42B4-B4C6-B05FC36F088C";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Distribution;
+		};
+		65A9713615C8D02E000AFC6F /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = unkore/Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"unkore/libs/kazmath/include\"";
+				INFOPLIST_FILE = unkore/Resources/Info.plist;
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
 		E11F076C15B3FFBA00DD70DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1828,6 +1870,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11F076C15B3FFBA00DD70DB /* Debug */,
+				65A9713515C8D02E000AFC6F /* Distribution */,
 				E11F076D15B3FFBA00DD70DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1837,6 +1880,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11F076F15B3FFBA00DD70DB /* Debug */,
+				65A9713615C8D02E000AFC6F /* Distribution */,
 				E11F077015B3FFBA00DD70DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
