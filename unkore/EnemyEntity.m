@@ -100,14 +100,14 @@
 		// enemies start invisible
 		self.visible = NO;
         
-        // 発生初期化
-		[self initSpawnFrequency];
-        
         // Manually add this class as receiver of targeted touch events.
-		//[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
         
-	}
+        CCLOG(@"親の情報ありますた！");
+        
+	}else {
+        CCLOG(@"親の情報ありませんでせいた！");
+    }
 	
 	return self;
 }
@@ -120,51 +120,24 @@
 
 #pragma mark -
 #pragma mark 発生頻度の初期化
-static CCArray* spawnFrequency;
+
 
 -(void) initSpawnFrequency
 {
-    // 敵をどのように何度も発生させるか
-	if (spawnFrequency == nil) {
-        // 敵毎の重みを設定（低いものほど発生しやすい）
-		spawnFrequency = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:15] atIndex:EnemyTypeSafe001];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:30] atIndex:EnemyTypeSafe002];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:40] atIndex:EnemyTypeSafe003];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:40] atIndex:EnemyTypeSafe004];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:40] atIndex:EnemyTypeSafe005];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:40] atIndex:EnemyTypeSafe006];
-        
-        [spawnFrequency insertObject:[NSNumber numberWithInt:50] atIndex:EnemyTypeOut001];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:80] atIndex:EnemyTypeOut002];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:90] atIndex:EnemyTypeOut003];
-        [spawnFrequency insertObject:[NSNumber numberWithInt:90] atIndex:EnemyTypeOut004];
-		
-		// spawn one enemy immediately
-		[self spawn];
-	}
+    // spawn one enemy immediately
+    [self spawn];
+    CCLOG(@"%s",__FUNCTION__);
 }
 
 
-+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType
-{
-	NSAssert(enemyType < EnemyType_MAX, @"invalid enemy type");
-	NSNumber* number = [spawnFrequency objectAtIndex:enemyType];
-	return [number intValue];
-}
 
 -(void) dealloc
 {
     // Must manually unschedule, it is not done automatically for us.
 	[[[CCDirector sharedDirector] scheduler] unscheduleUpdateForTarget:self];
     
-
 	// Must manually remove this class as touch input receiver!
 	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-	
-    // 発生頻度初期化
-	[spawnFrequency release];
-	spawnFrequency = nil;
 	
 	[super dealloc];
 }
