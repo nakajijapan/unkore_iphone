@@ -101,13 +101,17 @@
 		self.visible = NO;
         
         // 発生初期化
-		[self initSpawnFrequency];
+		//[self initSpawnFrequency];
         
         // Manually add this class as receiver of targeted touch events.
 		//[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
         
-	}
+        CCLOG(@"親の情報ありますた！");
+        
+	}else {
+        CCLOG(@"親の情報ありませんでせいた！");
+    }
 	
 	return self;
 }
@@ -120,6 +124,16 @@
 
 #pragma mark -
 #pragma mark 発生頻度の初期化
+
+
+-(void) initSpawnFrequency
+{
+    // spawn one enemy immediately
+    [self spawn];
+    CCLOG(@"%s",__FUNCTION__);
+}
+
+/*
 static CCArray* spawnFrequency;
 
 -(void) initSpawnFrequency
@@ -152,6 +166,7 @@ static CCArray* spawnFrequency;
 	NSNumber* number = [spawnFrequency objectAtIndex:enemyType];
 	return [number intValue];
 }
+*/
 
 -(void) dealloc
 {
@@ -163,8 +178,8 @@ static CCArray* spawnFrequency;
 	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 	
     // 発生頻度初期化
-	[spawnFrequency release];
-	spawnFrequency = nil;
+	//[spawnFrequency release];
+	//spawnFrequency = nil;
 	
 	[super dealloc];
 }
