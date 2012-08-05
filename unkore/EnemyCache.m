@@ -179,7 +179,6 @@ static CCArray* spawnFrequencyInfo;
         
 		// find the first free enemy and respawn it
 		if (enemy.visible == NO) {
-			//CCLOG(@"spawn enemy type %i", enemyType);
 			[enemy spawn];
             
             CCLOG(@"enemiesOfType = %s", __FUNCTION__);
@@ -195,8 +194,7 @@ static CCArray* spawnFrequencyInfo;
 // スケジューラ更新
 -(void) scheduleUpdate
 {
-    [self schedule:@selector(generateEnemy:) interval:1.3f];
-    //[self schedule:@selector(generateEnemy:) interval:.1f];
+    [self schedule:@selector(generateEnemy:) interval:1.1f];
 }
 
 
@@ -213,39 +211,8 @@ static CCArray* spawnFrequencyInfo;
     updateCount++;
     [self spawnEnemyOfType: [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]];
     
-    
-    // 敵の種類分操作
-    /*
-	updateCount++;
-	for (int i = EnemyType_MAX - 1; i >= 0; i--) {
-        
-        // 発生頻度取得（配列に格納されている分が重みとなる）
-		int spawnFrequency = [EnemyEntity getSpawnFrequencyForEnemyType:i];
-        //CCLOG(@"[enemy: %d] %d no watta amari %d = %d", i, updateCount, spawnFrequency, (updateCount % spawnFrequency) );
-        
-        // 重みに応じて敵を発生させる（あまりが0のときに敵発生）
-		if (updateCount % spawnFrequency == 0) {
-            [self spawnEnemyOfType:i];
-			break;
-		}
-	}
-     */
-    
+   
 }
 
-/*
- -(void) update:(ccTime)delta
- {
- updateCount++;
- for (int i = EnemyType_MAX - 1; i >= 0; i--) {
- int spawnFrequency = [EnemyEntity getSpawnFrequencyForEnemyType:i];
- CCLOG(@"[enemy: %d] %d no watta amari %d = %d", i, updateCount, spawnFrequency, (updateCount % spawnFrequency) );
- if (updateCount % spawnFrequency == 0) {
- [self spawnEnemyOfType:i];
- break;
- }
- }
- }
- */
 
 @end
