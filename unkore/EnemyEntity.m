@@ -9,6 +9,7 @@
 #import "EnemyEntity.h"
 #import "GameScene.h"
 #import "StandardMoveComponent.h"
+#import "RandomMoveComponent.h"
 
 @interface EnemyEntity (PrivateMethods)
 -(void) initSpawnFrequency;
@@ -16,6 +17,9 @@
 
 @implementation EnemyEntity
 @synthesize initialHitPoints, hitPoints, myScore, type;
+
+//@synthesize emitter=emitter_;
+
 
 #pragma mark -
 #pragma mark 指定された敵の初期化
@@ -31,7 +35,7 @@
 	switch (type)
 	{
         //-----------------------------------------------
-        // OKキャラ
+        // OKキャラ(unko)
 		case EnemyTypeSafe001:
 			enemyFrameName = @"game_safe001.png";
             myScore = 100;
@@ -54,7 +58,7 @@
 			break;
 		case EnemyTypeSafe005:
 			enemyFrameName = @"game_safe005.png";
-            myScore = 600;
+            myScore = 500;
 			initialHitPoints = 3;
 			break;
 		case EnemyTypeSafe006:
@@ -62,6 +66,11 @@
             myScore = 1000;
 			initialHitPoints = 3;
 			break;              
+		case EnemyTypeSafe100:
+			enemyFrameName = @"game_safe100.png";
+            myScore = 5000;
+			initialHitPoints = 20;
+			break;  
         //-----------------------------------------------
         // はずれ
         case EnemyTypeOut001:
@@ -94,8 +103,17 @@
     self = [super initWithSpriteFrameName:enemyFrameName];
     if (self)
 	{
+        // パスの動きを確定させる
+        if (type == EnemyTypeSafe100) {
+            [self addChild:[RandomMoveComponent node]];
+        }
+        // 通常の敵の動き
+        else {
+            [self addChild:[StandardMoveComponent node]];
+        }
+               
 		// Create the game logic components
-		[self addChild:[StandardMoveComponent node]];
+		//[self addChild:[StandardMoveComponent node]];
 		
 		// enemies start invisible
 		self.visible = NO;
@@ -120,8 +138,6 @@
 
 #pragma mark -
 #pragma mark 発生頻度の初期化
-
-
 -(void) initSpawnFrequency
 {
     // spawn one enemy immediately
@@ -142,7 +158,7 @@
 	[super dealloc];
 }
 
-#pragma mark 敵を生成させる
+#pragma mark メモリ上に待機している敵を生成させる
 -(void) spawn
 {
 	// Select a spawn location just outside the right side of the screen, with random y position
@@ -236,6 +252,9 @@
 	
 	return isTouchHandled;
 }
+
+
+
 
 @end
 

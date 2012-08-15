@@ -7,9 +7,6 @@
 //
 
 #import "StandardMoveComponent.h"
-#import "Entity.h"
-#import "GameScene.h"
-#import "EnemyEntity.h"
 
 @implementation StandardMoveComponent
 
@@ -18,7 +15,7 @@
 	if ((self = [super init]))
 	{
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        velocity = CGPointMake(0,  - screenSize.height );
+        velocity = CGPointMake(0,  - screenSize.height);
 
         // 更新開始
         [self scheduleUpdate];

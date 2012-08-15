@@ -16,4 +16,8 @@
     int updateCount;
 }
 
++(EnemyCache*) sharedEnemyCache;
+
+@property(readwrite) int updateCount;
+
 @end
