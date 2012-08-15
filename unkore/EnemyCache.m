@@ -17,10 +17,27 @@
 
 @implementation EnemyCache
 
+// property
+@synthesize updateCount;
+
+
 // 敵発生用配列
 static int      totalSpawnSize;
 static CCArray* spawnFrequency;
 static CCArray* spawnFrequencyInfo;
+
+
+static EnemyCache* instanceOfEnemyCache;
+
+
+#pragma mark - 
+#pragma mark shared
+
++(EnemyCache*) sharedEnemyCache
+{
+	NSAssert(instanceOfEnemyCache != nil, @"GameScene instance not yet initialized!");
+	return instanceOfEnemyCache;
+}
 
 
 +(id) cache
@@ -28,10 +45,17 @@ static CCArray* spawnFrequencyInfo;
 	return [[[self alloc] init] autorelease];
 }
 
+
+
+
+#pragma mark - 
+#pragma mark init Enemy
 -(id) init
 {
 	if ((self = [super init]))
 	{
+        // シングルトン
+        instanceOfEnemyCache = self;
        
 		// get any image from the Texture Atlas we're using
         // テクスチャアトラスからいずれかの画像を取得する
@@ -92,6 +116,10 @@ static CCArray* spawnFrequencyInfo;
 				capacity    = 10;
                 fruquency   = 70;
 				break; 
+			case EnemyTypeSafe100:
+				capacity    = 10;
+                fruquency   = 20;
+				break;
 			case EnemyTypeOut001:
 				capacity    = 10;
                 fruquency   = 70;
@@ -166,28 +194,6 @@ static CCArray* spawnFrequencyInfo;
 }
 
 
--(void) spawnEnemyOfType:(EnemyTypes)enemyType
-{
-    CCLOG(@"----------------------------------------------spawnEnemyOfType");
-	CCArray* enemiesOfType = [enemies objectAtIndex:enemyType];
-	EnemyEntity* enemy;
-    
-    // 利用されていない敵を発生（表示）させる
-	CCARRAY_FOREACH(enemiesOfType, enemy) {
-        
-        CCLOG(@"enemiesOfType = %d", enemiesOfType);
-        
-		// find the first free enemy and respawn it
-		if (enemy.visible == NO) {
-			[enemy spawn];
-            
-            CCLOG(@"enemiesOfType = %s", __FUNCTION__);
-            
-			break;
-		}
-	}
-}
-
 #pragma mark -
 #pragma mark スケジューラ関連
 
@@ -198,14 +204,14 @@ static CCArray* spawnFrequencyInfo;
 }
 
 
-// 敵を発生させる
+// 敵を発生させる（敵の種類も確定させる）
 -(void) generateEnemy: (id)selector
 {
-    CCLOG(@"----------------------------------------------generateEnemy");
+    CCLOG(@"---- %s", __FUNCTION__);
     
     int maxSize = spawnFrequencyInfo.count;
     int enemyTypeOffset = (int)(CCRANDOM_0_1() * maxSize) % maxSize ;
-    CCLOG(@"show rand -----------------%d -> enemy = %d", enemyTypeOffset, [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]);
+    //CCLOG(@"show rand -----------------%d -> enemy = %d", enemyTypeOffset, [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]);
     
     // 重みに応じて敵を発生させる（あまりが0のときに敵発生）
     updateCount++;
@@ -214,5 +220,27 @@ static CCArray* spawnFrequencyInfo;
    
 }
 
+-(void) spawnEnemyOfType:(EnemyTypes)enemyType
+{
+    CCLOG(@"---- %s", __FUNCTION__);
+    
+	CCArray* enemiesOfType = [enemies objectAtIndex:enemyType];
+	EnemyEntity* enemy;
+    
+    // 利用されていない敵を発生（表示）させる
+	CCARRAY_FOREACH(enemiesOfType, enemy) {
+        
+        //CCLOG(@"enemiesOfType = %d", enemiesOfType);
+        
+		// find the first free enemy and respawn it
+		if (enemy.visible == NO) {
+			[enemy spawn];
+            
+            //CCLOG(@"enemiesOfType = %s", __FUNCTION__);
+            
+			break;
+		}
+	}
+}
 
 @end

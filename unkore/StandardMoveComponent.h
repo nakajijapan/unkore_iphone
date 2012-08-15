@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#import "Entity.h"
+#import "GameScene.h"
+#import "EnemyEntity.h"
+
 // Why is it derived from CCSprite? Because enemies use a SpriteBatch, and CCSpriteBatchNode requires that all
 // child nodes added to it are CCSprite. Under other circumstances I would use a CCNode as parent class of course, since
 // the components won't have a texture and everything else that a Sprite has.

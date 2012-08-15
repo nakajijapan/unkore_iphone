@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Entity.h"
 #import "SimpleAudioEngine.h"
+#import "EnemyCache.h"
+
+//#import "CCParticleGoldUnko.h"
+#import "CCParticleExamples.h"
 
 typedef enum
 {
@@ -18,6 +22,7 @@ typedef enum
     EnemyTypeSafe004,
     EnemyTypeSafe005,
     EnemyTypeSafe006,
+    EnemyTypeSafe100,
     
     EnemyTypeOut001,
     EnemyTypeOut002,
@@ -33,7 +38,11 @@ typedef enum
     int myScore;
     
     EnemyTypes type;
+    
+    //CCParticleSystem* emitter_;
 }
+//@property (readwrite, retain) CCParticleSystem* emitter;
+
 @property (readonly, nonatomic) int initialHitPoints;
 @property (readonly, nonatomic) int hitPoints;
 @property (readonly, nonatomic) int myScore;
