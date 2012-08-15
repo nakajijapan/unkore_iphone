@@ -274,6 +274,8 @@
 		E19A5B8E15BEF57800BA7FDC /* hae.plist in Resources */ = {isa = PBXBuildFile; fileRef = E19A5B8C15BEF57500BA7FDC /* hae.plist */; };
 		E19A5B9115BEF5E300BA7FDC /* hae-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E19A5B8F15BEF5DD00BA7FDC /* hae-hd.png */; };
 		E19A5B9215BEF5E300BA7FDC /* hae.png in Resources */ = {isa = PBXBuildFile; fileRef = E19A5B9015BEF5E000BA7FDC /* hae.png */; };
+		E19D8EF115DC164C00BEDDEF /* game_center-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E19D8EEF15DC164C00BEDDEF /* game_center-hd.png */; };
+		E19D8EF215DC164C00BEDDEF /* game_center.png in Resources */ = {isa = PBXBuildFile; fileRef = E19D8EF015DC164C00BEDDEF /* game_center.png */; };
 		E1AF547515B5D38100AE8902 /* EnemyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF547415B5D38100AE8902 /* EnemyCache.m */; };
 		E1AF547815B5D3AA00AE8902 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF547715B5D3AA00AE8902 /* Entity.m */; };
 		E1AF547B15B5D3C000AE8902 /* EnemyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF547A15B5D3C000AE8902 /* EnemyEntity.m */; };
@@ -704,6 +706,8 @@
 		E19A5B8C15BEF57500BA7FDC /* hae.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hae.plist; path = Resources/hae.plist; sourceTree = "<group>"; };
 		E19A5B8F15BEF5DD00BA7FDC /* hae-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hae-hd.png"; path = "Resources/hae-hd.png"; sourceTree = "<group>"; };
 		E19A5B9015BEF5E000BA7FDC /* hae.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hae.png; path = Resources/hae.png; sourceTree = "<group>"; };
+		E19D8EEF15DC164C00BEDDEF /* game_center-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_center-hd.png"; sourceTree = "<group>"; };
+		E19D8EF015DC164C00BEDDEF /* game_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_center.png; sourceTree = "<group>"; };
 		E1AF547315B5D38000AE8902 /* EnemyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyCache.h; sourceTree = "<group>"; };
 		E1AF547415B5D38100AE8902 /* EnemyCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyCache.m; sourceTree = "<group>"; };
 		E1AF547615B5D3AA00AE8902 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -1399,6 +1403,8 @@
 		E1AF546D15B5BE3E00AE8902 /* GameImages */ = {
 			isa = PBXGroup;
 			children = (
+				E19D8EEF15DC164C00BEDDEF /* game_center-hd.png */,
+				E19D8EF015DC164C00BEDDEF /* game_center.png */,
 				E1934A7215BB5B7E00B1065B /* GameHighscore */,
 				E1934A0F15BB1C9300B1065B /* GameOver */,
 				E19349B615BB09A100B1065B /* GameArt */,
@@ -1621,6 +1627,8 @@
 				E19A5B9115BEF5E300BA7FDC /* hae-hd.png in Resources */,
 				E19A5B9215BEF5E300BA7FDC /* hae.png in Resources */,
 				E1E1C23D15DBC42C004039A6 /* fire.png in Resources */,
+				E19D8EF115DC164C00BEDDEF /* game_center-hd.png in Resources */,
+				E19D8EF215DC164C00BEDDEF /* game_center.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,11 +28,16 @@
     menuItemHome.anchorPoint    = CGPointMake(0, 1);
     [self addChild:menuHome z: 2];
     
-    // ヘルプ画像
+    
+    // ヘルプ画像 & GameCenter
     CCMenuItemImage* menuItemHelp = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_how.png" selectedImage:nil target:self selector:@selector(onHelp:)];
-    CCMenu* menuHelp = [CCMenu menuWithItems:menuItemHelp, nil];
-    menuHelp.position = CGPointMake(screenSize.width - 5, screenSize.height - 5);
+    CCMenuItemImage* menuItemGameCenter = [CCMenuItemImage itemWithNormalImage:@"game_center.png" selectedImage:nil target:self selector:@selector(onGameCenter:)];
+    CCMenu* menuHelp = [CCMenu menuWithItems:menuItemGameCenter, menuItemHelp, nil];
+    menuHelp.position = CGPointMake(screenSize.width - 30, screenSize.height - 5);
+    menuHelp.anchorPoint = ccp(1, 1);
     menuItemHelp.anchorPoint = CGPointMake(1, 1);
+    menuItemGameCenter.anchorPoint = CGPointMake(1, 1);
+    [menuHelp alignItemsHorizontallyWithPadding:5.0f];
     [self addChild:menuHelp z: 2];
     
     
@@ -41,7 +46,7 @@
     CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_hiscore.png" selectedImage:nil target:self selector:@selector(onHighScore:)];
     CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
     menu.position = ccp(screenSize.width / 2, 90);
-    [menu alignItemsVerticallyWithPadding: 10.0f];
+    [menu alignItemsVerticallyWithPadding:10.0f];
     [self addChild:menu z: 2];
     
     // back
@@ -89,6 +94,24 @@
 -(void) onHelp:(id)sender
 {
     
+}
+
+// LeaderBoad
+-(void) onGameCenter:(id)sender
+{
+    GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+    leaderboardViewController.leaderboardDelegate = self;
+    
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    [[app navController] presentModalViewController:leaderboardViewController animated:YES];
+    [leaderboardViewController release];
+}
+
+#pragma mark GameKit delegate
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
 @end
