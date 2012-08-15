@@ -18,6 +18,9 @@
 @implementation EnemyEntity
 @synthesize initialHitPoints, hitPoints, myScore, type;
 
+//@synthesize emitter=emitter_;
+
+
 #pragma mark -
 #pragma mark 指定された敵の初期化
 -(id) initWithType:(EnemyTypes)enemyType
@@ -63,6 +66,11 @@
             myScore = 1000;
 			initialHitPoints = 3;
 			break;              
+		case EnemyTypeSafe100:
+			enemyFrameName = @"game_safe100.png";
+            myScore = 5000;
+			initialHitPoints = 10;
+			break;  
         //-----------------------------------------------
         // はずれ
         case EnemyTypeOut001:
@@ -97,7 +105,17 @@
 	{
 //TEST:これの敵をボスとする 
         // パスの動きを確定させる
-        if (type == EnemyTypeSafe006) {
+        if (type == EnemyTypeSafe100) {
+            
+            //emitter = [CCParticleGoldUnko node];
+            /*
+            self.emitter = [CCParticleFlower node];
+            [self addChild:emitter_ z:100];
+            emitter_.texture = [[CCTextureCache sharedTextureCache] addImage: @"game_safe006.png"];
+            if( CGPointEqualToPoint( emitter_.sourcePosition, CGPointZero ) )   emitter_.position = ccp(0, 0);
+            */
+
+            
             [self addChild:[RandomMoveComponent node]];
         }
         // 通常の敵の動き
@@ -246,6 +264,9 @@
 	
 	return isTouchHandled;
 }
+
+
+
 
 @end
 

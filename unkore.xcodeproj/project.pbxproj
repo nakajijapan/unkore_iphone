@@ -282,6 +282,7 @@
 		E1AF548715B5DA2400AE8902 /* game-art.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF548315B5DA2400AE8902 /* game-art.png */; };
 		E1C784D315B5B6CA00165EAD /* HipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C784D215B5B6CA00165EAD /* HipLayer.m */; };
 		E1C784D715B5B72D00165EAD /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C784D615B5B72D00165EAD /* GameLayer.m */; };
+		E1E1C23D15DBC42C004039A6 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E1C23C15DBC42C004039A6 /* fire.png */; };
 		E1F294BC15BBA4D40096C1ED /* kotori_btn_start-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F294BB15BBA4D40096C1ED /* kotori_btn_start-hd.png */; };
 /* End PBXBuildFile section */
 
@@ -717,6 +718,7 @@
 		E1C784D215B5B6CA00165EAD /* HipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HipLayer.m; sourceTree = "<group>"; };
 		E1C784D515B5B72D00165EAD /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		E1C784D615B5B72D00165EAD /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		E1E1C23C15DBC42C004039A6 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		E1F294BB15BBA4D40096C1ED /* kotori_btn_start-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kotori_btn_start-hd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1401,6 +1403,7 @@
 				E1934A0F15BB1C9300B1065B /* GameOver */,
 				E19349B615BB09A100B1065B /* GameArt */,
 				E193495215BAE1AD00B1065B /* game_top_background-hd.png */,
+				E1E1C23B15DBC42C004039A6 /* Particle */,
 				E193495315BAE1AD00B1065B /* game_top_background.png */,
 				E193495415BAE1AD00B1065B /* game_top_btn_hiscore-hd.png */,
 				E193495515BAE1AD00B1065B /* game_top_btn_hiscore.png */,
@@ -1413,6 +1416,14 @@
 			);
 			name = GameImages;
 			path = Resources/GameImages;
+			sourceTree = "<group>";
+		};
+		E1E1C23B15DBC42C004039A6 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				E1E1C23C15DBC42C004039A6 /* fire.png */,
+			);
+			path = Particle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1609,6 +1620,7 @@
 				E19A5B8E15BEF57800BA7FDC /* hae.plist in Resources */,
 				E19A5B9115BEF5E300BA7FDC /* hae-hd.png in Resources */,
 				E19A5B9215BEF5E300BA7FDC /* hae.png in Resources */,
+				E1E1C23D15DBC42C004039A6 /* fire.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
