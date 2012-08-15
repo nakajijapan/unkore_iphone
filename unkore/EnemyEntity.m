@@ -115,13 +115,12 @@
             if( CGPointEqualToPoint( emitter_.sourcePosition, CGPointZero ) )   emitter_.position = ccp(0, 0);
             */
 
-            
             [self addChild:[RandomMoveComponent node]];
         }
         // 通常の敵の動き
         else {
-            //[self addChild:[StandardMoveComponent node]];
-            [self addChild:[RandomMoveComponent node]];
+            [self addChild:[StandardMoveComponent node]];
+            //[self addChild:[RandomMoveComponent node]];
         }
                
 		// Create the game logic components
