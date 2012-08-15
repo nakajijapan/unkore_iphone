@@ -9,6 +9,7 @@
 #import "EnemyEntity.h"
 #import "GameScene.h"
 #import "StandardMoveComponent.h"
+#import "RandomMoveComponent.h"
 
 @interface EnemyEntity (PrivateMethods)
 -(void) initSpawnFrequency;
@@ -31,7 +32,7 @@
 	switch (type)
 	{
         //-----------------------------------------------
-        // OKキャラ
+        // OKキャラ(unko)
 		case EnemyTypeSafe001:
 			enemyFrameName = @"game_safe001.png";
             myScore = 100;
@@ -54,7 +55,7 @@
 			break;
 		case EnemyTypeSafe005:
 			enemyFrameName = @"game_safe005.png";
-            myScore = 600;
+            myScore = 500;
 			initialHitPoints = 3;
 			break;
 		case EnemyTypeSafe006:
@@ -94,8 +95,19 @@
     self = [super initWithSpriteFrameName:enemyFrameName];
     if (self)
 	{
+//TEST:これの敵をボスとする 
+        // パスの動きを確定させる
+        if (type == EnemyTypeSafe006) {
+            [self addChild:[RandomMoveComponent node]];
+        }
+        // 通常の敵の動き
+        else {
+            //[self addChild:[StandardMoveComponent node]];
+            [self addChild:[RandomMoveComponent node]];
+        }
+               
 		// Create the game logic components
-		[self addChild:[StandardMoveComponent node]];
+		//[self addChild:[StandardMoveComponent node]];
 		
 		// enemies start invisible
 		self.visible = NO;
@@ -120,8 +132,6 @@
 
 #pragma mark -
 #pragma mark 発生頻度の初期化
-
-
 -(void) initSpawnFrequency
 {
     // spawn one enemy immediately
@@ -142,7 +152,7 @@
 	[super dealloc];
 }
 
-#pragma mark 敵を生成させる
+#pragma mark メモリ上に待機している敵を生成させる
 -(void) spawn
 {
 	// Select a spawn location just outside the right side of the screen, with random y position

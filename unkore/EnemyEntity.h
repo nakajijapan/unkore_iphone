@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Entity.h"
 #import "SimpleAudioEngine.h"
+#import "EnemyCache.h"
+
 
 typedef enum
 {
