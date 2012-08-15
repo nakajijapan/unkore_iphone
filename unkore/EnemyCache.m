@@ -118,7 +118,7 @@ static EnemyCache* instanceOfEnemyCache;
 				break; 
 			case EnemyTypeSafe100:
 				capacity    = 10;
-                fruquency   = 70;
+                fruquency   = 20;
 				break;
 			case EnemyTypeOut001:
 				capacity    = 10;

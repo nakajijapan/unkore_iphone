@@ -69,7 +69,7 @@
 		case EnemyTypeSafe100:
 			enemyFrameName = @"game_safe100.png";
             myScore = 5000;
-			initialHitPoints = 10;
+			initialHitPoints = 20;
 			break;  
         //-----------------------------------------------
         // はずれ
@@ -103,24 +103,13 @@
     self = [super initWithSpriteFrameName:enemyFrameName];
     if (self)
 	{
-//TEST:これの敵をボスとする 
         // パスの動きを確定させる
         if (type == EnemyTypeSafe100) {
-            
-            //emitter = [CCParticleGoldUnko node];
-            /*
-            self.emitter = [CCParticleFlower node];
-            [self addChild:emitter_ z:100];
-            emitter_.texture = [[CCTextureCache sharedTextureCache] addImage: @"game_safe006.png"];
-            if( CGPointEqualToPoint( emitter_.sourcePosition, CGPointZero ) )   emitter_.position = ccp(0, 0);
-            */
-
             [self addChild:[RandomMoveComponent node]];
         }
         // 通常の敵の動き
         else {
             [self addChild:[StandardMoveComponent node]];
-            //[self addChild:[RandomMoveComponent node]];
         }
                
 		// Create the game logic components

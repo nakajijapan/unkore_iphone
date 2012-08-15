@@ -12,7 +12,7 @@
 #import "EnemyCache.h"
 
 //#import "CCParticleGoldUnko.h"
-
+#import "CCParticleExamples.h"
 
 typedef enum
 {
