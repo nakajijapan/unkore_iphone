@@ -47,7 +47,6 @@
             [entity runAction:sequence];
         }
         
-        //CCLOG(@"----------------------entity.position = %@", NSStringFromCGPoint(entity.position));
         // 特定の位置にきた時点での操作
         if (entity.position.y <= -300) {
             

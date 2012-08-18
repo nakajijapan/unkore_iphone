@@ -243,7 +243,6 @@ static CGRect screenRect;
 {
     CCLOG(@"onGameOver : high score");
     
-
     // 音楽を止める
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
@@ -298,14 +297,10 @@ static CGRect screenRect;
     
     // ハイスコア
     if (highScore < _nowScore) {
-        
         [defaults setInteger:_nowScore forKey:@"HIGH_SCORE"];
         [defaults synchronize];
-        
         CCLOG(@"high score now!!!!!!!!!!!! > %d", [defaults integerForKey:@"HIGH_SCORE"]);
     }
-    
-    // メッソドのscoreは後で、GameCenterにスコアを送るように使います。間違いではありません。
 }
 -(int)nowScore
 {
@@ -321,11 +316,6 @@ static CGRect screenRect;
 	// The Layer will be gone now, to avoid crashes on further access it needs to be nil.
 	instanceOfGameScene = nil;
     
-    // MEMO:
-    // リトライしたときに大気中の動物が非表示で画面真ん中に表示されているため、タッチすると
-    // すぐゲームオーバになってしまう。
-    [self removeChildByTag:GameSceneNodeTagEnemyCache cleanup:YES];
-	
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }

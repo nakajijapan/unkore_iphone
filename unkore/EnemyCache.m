@@ -165,7 +165,6 @@ static EnemyCache* instanceOfEnemyCache;
         }
     }
     
-    
 	CCLOG(@"enemyCacheSzie %d", totalSpawnSize);
     CCLOG(@"enemy max = %d", EnemyType_MAX);
     
@@ -189,13 +188,6 @@ static EnemyCache* instanceOfEnemyCache;
 		}
 	}
 }
-
--(void) dealloc
-{
-	[enemies release];
-	[super dealloc];
-}
-
 
 #pragma mark -
 #pragma mark スケジューラ関連
@@ -303,6 +295,32 @@ static EnemyCache* instanceOfEnemyCache;
 			break;
 		}
 	}
+}
+
+#pragma mark -
+#pragma mark lifecycle
+-(void) initSpawnEnemies
+{
+    CCLOG(@"---- %s", __FUNCTION__);
+    CCLOG(@"敵を初期位置へ戻します");
+    EnemyEntity* enemy;
+    CCArray* enemiesOfType;
+    CCARRAY_FOREACH(enemies, enemiesOfType) {
+        CCARRAY_FOREACH(enemiesOfType, enemy) {
+            [enemy spawn];
+        }
+    }
+
+}
+
+-(void) dealloc
+{
+    // 敵を初期位置に戻す
+    //[[EnemyCache sharedEnemyCache] initSpawnEnemies];
+    [self initSpawnEnemies];
+    
+	[enemies release];
+	[super dealloc];
 }
 
 @end

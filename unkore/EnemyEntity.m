@@ -234,6 +234,7 @@
         CCLOG(@"%@", NSStringFromCGRect([self boundingBox]));
         CCLOG(@"%@", NSStringFromCGPoint(touchLocation));
         CCLOG(@"type = %d", type);
+        CCLOG(@"self.visible = %d", self.visible);
         CCLOG(@"--------- touched unko end--------");
         if (self.visible == NO) {
             return isTouchHandled;

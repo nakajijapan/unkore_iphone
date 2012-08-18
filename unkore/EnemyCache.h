@@ -27,6 +27,8 @@
 
 +(EnemyCache*) sharedEnemyCache;
 
+-(void) initSpawnEnemies;
+
 @property(readwrite) int updateCount;
 
 @end
