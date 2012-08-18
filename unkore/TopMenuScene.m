@@ -8,10 +8,6 @@
 
 #import "TopMenuScene.h"
 
-#import "OtohimeScene.h"
-#import "CreditsScene.h"
-#import "GameMenuScene.h"
-
 @interface TopMenuScene (Private)
 -(void) onManage:(id) sender;
 -(void) onGame:(id) sender;
@@ -147,17 +143,17 @@
 }
 -(void) onGame:(id) sender
 {
-    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:2 scene:[GameMenuScene scene]];
+    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:[GameMenuScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
 }
 -(void) onOtohime:(id) sender
 {
-    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:2 scene:[OtohimeScene scene]];
+    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:[OtohimeScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
 }
 -(void) onCredit:(id) sender
 {
-    CCTransitionJumpZoom* trans = [CCTransitionJumpZoom transitionWithDuration:2 scene:[CreditsScene scene]];
+    CCTransitionJumpZoom* trans = [CCTransitionJumpZoom transitionWithDuration:TRANSITION_DURATION scene:[CreditsScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
 
 }

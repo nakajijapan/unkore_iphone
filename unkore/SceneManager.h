@@ -13,6 +13,8 @@
 #import "GameScene.h"
 #import "OtohimeScene.h"
 
+#define TRANSITION_DURATION (0.6f)
+
 @interface SceneManager : NSObject {
     
 }

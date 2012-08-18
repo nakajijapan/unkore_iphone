@@ -83,7 +83,7 @@
 }
 -(void) onHighScore:(id)sender
 {
-    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:2 scene:[HighScoreScene scene]];
+    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:[HighScoreScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
 }
 -(void) onBack:(id)sender

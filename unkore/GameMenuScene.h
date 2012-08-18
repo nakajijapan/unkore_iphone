@@ -13,7 +13,7 @@
 #import "GameScene.h"
 #import "HighScoreScene.h"
 
-// GK
+// GameKit
 #import <GameKit/GameKit.h>
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"

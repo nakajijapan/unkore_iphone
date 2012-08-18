@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#import "SceneManager.h"
+
+#import "OtohimeScene.h"
+#import "CreditsScene.h"
+#import "GameMenuScene.h"
+
 @interface TopMenuScene : CCLayer {
     
 }
