@@ -87,9 +87,10 @@
             trans = newScene;
         }
 
-        
+        // 現在のシーンを削除して新しいシーンを表示
         [director replaceScene:trans];
 	}else {
+        // プログラム起動時
 		[director runWithScene:newScene];		
 	}
 }

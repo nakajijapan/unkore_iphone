@@ -20,7 +20,6 @@
 
 //@synthesize emitter=emitter_;
 
-
 #pragma mark -
 #pragma mark 指定された敵の初期化
 -(id) initWithType:(EnemyTypes)enemyType
@@ -32,6 +31,7 @@
 	NSString* enemyFrameName;
 	initialHitPoints = 1;
 	
+    // 敵のステータス
 	switch (type)
 	{
         //-----------------------------------------------
@@ -146,7 +146,6 @@
 }
 
 
-
 -(void) dealloc
 {
     // Must manually unschedule, it is not done automatically for us.
@@ -252,9 +251,5 @@
 	
 	return isTouchHandled;
 }
-
-
-
-
 @end
 

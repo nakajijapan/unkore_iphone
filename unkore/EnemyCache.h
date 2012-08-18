@@ -21,7 +21,7 @@
     int difficultModeCount;
 
     // ゲームモード変更時のアニメーションフラグ
-    // この間にアニメーションが実行される
+    // フラグが経っている間にアニメーションが実行される
     bool cacheFlgForGameMode;
 }
 

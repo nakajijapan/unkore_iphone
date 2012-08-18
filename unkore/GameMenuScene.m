@@ -77,7 +77,6 @@
 -(void) onNewGame:(id)sender
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"unkore_game_start.mp3"];
-    //CCTransitionSlideInR* trans = [CCTransitionRotoZoom transitionWithDuration:2 scene:[GameScene scene]];
     CCTransitionSplitRows* trans = [CCTransitionSplitRows transitionWithDuration:2 scene:[GameScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
     

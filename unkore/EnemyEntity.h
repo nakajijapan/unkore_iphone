@@ -50,8 +50,7 @@ typedef enum
 
 +(id) enemyWithType:(EnemyTypes)enemyType;
 
-//+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType;
-
+// 敵発生
 -(void) spawn;
 
 -(void) gotHit;

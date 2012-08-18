@@ -54,7 +54,11 @@
             CCLOG(@"set no visible");
             // 見えない位置へ
             [entity setPosition: CGPointMake(entity.position.x, -500)];
+            
+            // 敵を待機状態にする
             entity.visible = NO;
+            
+            // スケジューラストップ
             [self unscheduleUpdate];
             
             isMoving = NO;
