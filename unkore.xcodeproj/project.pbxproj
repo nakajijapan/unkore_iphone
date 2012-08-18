@@ -144,6 +144,7 @@
 		E11F080815B44E8A00DD70DB /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E11F080715B44E8900DD70DB /* GameOverScene.m */; };
 		E11F080B15B4531500DD70DB /* HighScoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E11F080A15B4531500DD70DB /* HighScoreScene.m */; };
 		E11F080D15B47D9800DD70DB /* unkore_otohime001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E11F080C15B47D9800DD70DB /* unkore_otohime001.mp3 */; };
+		E13BB4E815DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */; };
 		E16B98EC15CF1D470047A738 /* RandomMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B98EB15CF1D460047A738 /* RandomMoveComponent.m */; };
 		E193491415BA79E200B1065B /* unkore_otohime002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E193491215BA79E200B1065B /* unkore_otohime002.mp3 */; };
 		E193491715BA7A0100B1065B /* unkore_otohime003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E193491615BA7A0100B1065B /* unkore_otohime003.mp3 */; };
@@ -570,6 +571,7 @@
 		E11F080915B4531500DD70DB /* HighScoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreScene.h; sourceTree = "<group>"; };
 		E11F080A15B4531500DD70DB /* HighScoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreScene.m; sourceTree = "<group>"; };
 		E11F080C15B47D9800DD70DB /* unkore_otohime001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_otohime001.mp3; sourceTree = "<group>"; };
+		E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_gememode_difficult001.mp3; sourceTree = "<group>"; };
 		E16B98EA15CF1D460047A738 /* RandomMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomMoveComponent.h; sourceTree = "<group>"; };
 		E16B98EB15CF1D460047A738 /* RandomMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomMoveComponent.m; sourceTree = "<group>"; };
 		E193491215BA79E200B1065B /* unkore_otohime002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_otohime002.mp3; sourceTree = "<group>"; };
@@ -1196,6 +1198,7 @@
 		E11F07F815B448A300DD70DB /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */,
 				E193491E15BA99EC00B1065B /* unkore_game_over.mp3 */,
 				E11F07F915B448A300DD70DB /* unkore_background.mp3 */,
 				E11F07FA15B448A300DD70DB /* unkore_game_start.mp3 */,
@@ -1629,6 +1632,7 @@
 				E1E1C23D15DBC42C004039A6 /* fire.png in Resources */,
 				E19D8EF115DC164C00BEDDEF /* game_center-hd.png in Resources */,
 				E19D8EF215DC164C00BEDDEF /* game_center.png in Resources */,
+				E13BB4E815DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

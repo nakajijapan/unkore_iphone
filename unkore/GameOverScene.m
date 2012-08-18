@@ -49,7 +49,7 @@
         
         
         // メニュー
-        CCMenuItemImage* menuMain1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_retry.png" selectedImage:nil target:self selector:@selector(onRestart:)];
+        CCMenuItemImage* menuMain1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_retry.png"   selectedImage:nil target:self selector:@selector(onRestart:)];
         CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
         CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
         menu.position = ccp(screenSize.width / 2, 100);

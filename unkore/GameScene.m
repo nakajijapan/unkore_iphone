@@ -307,6 +307,10 @@ static CGRect screenRect;
     
     // メッソドのscoreは後で、GameCenterにスコアを送るように使います。間違いではありません。
 }
+-(int)nowScore
+{
+    return _nowScore;
+}
 
 #pragma mark -
 #pragma mark lifecycle
@@ -316,6 +320,11 @@ static CGRect screenRect;
 	
 	// The Layer will be gone now, to avoid crashes on further access it needs to be nil.
 	instanceOfGameScene = nil;
+    
+    // MEMO:
+    // リトライしたときに大気中の動物が非表示で画面真ん中に表示されているため、タッチすると
+    // すぐゲームオーバになってしまう。
+    [self removeChildByTag:GameSceneNodeTagEnemyCache cleanup:YES];
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];

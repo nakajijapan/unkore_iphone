@@ -9,11 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#define UK_INTERVAL_ENEMY_GANERATE_NORMAL    1.1f
+#define UK_INTERVAL_ENEMY_GANERATE_DIFFICULT 0.7f
+#define UK_CHANGE_SCORE_TO_DIFFCULT 5000
+
 @interface EnemyCache : CCNode {
     CCSpriteBatchNode* batch;
     CCArray* enemies;
     
     int updateCount;
+    int difficultModeCount;
+
+    // ゲームモード変更時のアニメーションフラグ
+    // この間にアニメーションが実行される
+    bool cacheFlgForGameMode;
 }
 
 +(EnemyCache*) sharedEnemyCache;

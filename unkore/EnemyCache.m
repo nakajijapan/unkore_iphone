@@ -70,7 +70,11 @@ static EnemyCache* instanceOfEnemyCache;
 		[self initEnemies];
         
         // スケジュールアップデート
-		[self scheduleUpdate];
+		[self scheduleUpdates];
+        
+        // ゲームモード移行時の処理フラグ
+        cacheFlgForGameMode = NO;
+        
 	}
 	
 	return self;
@@ -118,7 +122,7 @@ static EnemyCache* instanceOfEnemyCache;
 				break; 
 			case EnemyTypeSafe100:
 				capacity    = 10;
-                fruquency   = 20;
+                fruquency   = 40;
 				break;
 			case EnemyTypeOut001:
 				capacity    = 10;
@@ -136,7 +140,6 @@ static EnemyCache* instanceOfEnemyCache;
 				capacity    = 10;
                 fruquency   = 50;
 				break;
-
 			default:
 				[NSException exceptionWithName:@"EnemyCache Exception" reason:@"unhandled enemy type" userInfo:nil];
 				break;
@@ -198,9 +201,9 @@ static EnemyCache* instanceOfEnemyCache;
 #pragma mark スケジューラ関連
 
 // スケジューラ更新
--(void) scheduleUpdate
+-(void) scheduleUpdates
 {
-    [self schedule:@selector(generateEnemy:) interval:1.1f];
+    [self schedule:@selector(generateEnemy:) interval:UK_INTERVAL_ENEMY_GANERATE_NORMAL];
 }
 
 
@@ -208,16 +211,76 @@ static EnemyCache* instanceOfEnemyCache;
 -(void) generateEnemy: (id)selector
 {
     CCLOG(@"---- %s", __FUNCTION__);
-    
+    CCLOG(@"updatecount = %d", updateCount);
+    CCLOG(@"difficultModeCount = %d", difficultModeCount);
     int maxSize = spawnFrequencyInfo.count;
     int enemyTypeOffset = (int)(CCRANDOM_0_1() * maxSize) % maxSize ;
     //CCLOG(@"show rand -----------------%d -> enemy = %d", enemyTypeOffset, [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]);
     
     // 重みに応じて敵を発生させる（あまりが0のときに敵発生）
     updateCount++;
-    [self spawnEnemyOfType: [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]];
     
-   
+    //--------------------------------------------------------
+    // 激ムズモード(スコアで決定)
+    //--------------------------------------------------------
+    if ( ([[GameScene sharedGameScene] nowScore] >= UK_CHANGE_SCORE_TO_DIFFCULT && difficultModeCount < 1) || cacheFlgForGameMode == YES) {
+        difficultModeCount++;
+        
+        // 使用中にする
+        cacheFlgForGameMode = YES;
+        
+        // アニメーション処理
+        if (1 <= difficultModeCount && difficultModeCount <= 7) {
+            if (difficultModeCount == 1) {
+                CCParticleSystem* system = [CCParticleFireworks node];// げり
+                CGSize winSize = [[CCDirector sharedDirector] winSize];
+                system.position = CGPointMake(winSize.width / 2, (winSize.height * 3 / 4) + 10 );
+                system.texture = [[CCTextureCache sharedTextureCache] addImage: @"game_safe001.png"];
+                system.duration = 2; // for 2 seccond
+                // rotate
+                id rotate = [CCRotateTo actionWithDuration:.0f angle:180];
+                [system runAction:rotate];
+                [[GameScene sharedGameScene] addChild:system z:100 tag:100];
+                
+                // sound
+                [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_gememode_difficult001.mp3"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"unkore_gememode_difficult001.mp3"];
+            }
+            else if (difficultModeCount == 7) {
+                // 発生サイクルを短くする
+                [[GameScene sharedGameScene] removeChildByTag:100 cleanup:YES];
+                
+                // スケジューラ登録し直し
+                [self unschedule:_cmd];
+                [self schedule:_cmd interval:UK_INTERVAL_ENEMY_GANERATE_DIFFICULT];
+                
+                // 終了
+                cacheFlgForGameMode = NO;
+                difficultModeCount = 100;
+            }
+        }
+    }
+    //--------------------------------------------------------
+    // 通常（敵を発生させる）
+    //--------------------------------------------------------    
+    else {
+        [self spawnEnemyOfType: [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]];
+    }
+    
+    /*
+//TODO:Particleを自家製で作成しなければいけないかも
+    // 激ムズモード(時間で決定)
+    if (5 <= updateCount && updateCount <= 15) {
+        if (updateCount == 5) {
+        }
+        else if (updateCount == 15) {
+        }
+    }
+    else {
+        [self spawnEnemyOfType: [[spawnFrequencyInfo objectAtIndex:enemyTypeOffset] intValue]];
+    }
+    */
+
 }
 
 -(void) spawnEnemyOfType:(EnemyTypes)enemyType
@@ -237,7 +300,6 @@ static EnemyCache* instanceOfEnemyCache;
 			[enemy spawn];
             
             //CCLOG(@"enemiesOfType = %s", __FUNCTION__);
-            
 			break;
 		}
 	}

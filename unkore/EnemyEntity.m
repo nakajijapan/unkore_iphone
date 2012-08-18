@@ -69,7 +69,7 @@
 		case EnemyTypeSafe100:
 			enemyFrameName = @"game_safe100.png";
             myScore = 5000;
-			initialHitPoints = 20;
+			initialHitPoints = 10;
 			break;  
         //-----------------------------------------------
         // はずれ

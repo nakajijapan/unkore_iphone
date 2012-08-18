@@ -58,6 +58,7 @@ typedef enum
 //-(void)setScore;
 -(void)updateScore:(int)score;
 -(void)setHighScore:(int)score;
+-(int)nowScore;
 
 #pragma mark ゲームオーバ処理
 -(void)onGameOver;
