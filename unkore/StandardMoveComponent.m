@@ -51,6 +51,8 @@
         if (entity.position.y <= -300) {
             
             CCLOG(@"set no visible");
+            CCLOG(@"---- %@", NSStringFromCGPoint(entity.position));
+            
             // 見えない位置へ
             [entity setPosition: CGPointMake(entity.position.x, -500)];
             
@@ -60,8 +62,8 @@
             // スケジューラストップ
             [self unscheduleUpdate];
             
+            // 移動終了
             isMoving = NO;
-            CCLOG(@"---- %@", NSStringFromCGPoint(entity.position));
             
             // タッチしてはいけない敵以外
             if (entity.type < EnemyTypeOut001) {
