@@ -49,7 +49,7 @@
 		case EnemyTypeSafe003:
 			enemyFrameName = @"game_safe003.png";
             myScore = 250;
-			initialHitPoints = 2;
+			initialHitPoints = 1;
 			break;
 		case EnemyTypeSafe004:
 			enemyFrameName = @"game_safe004.png";
@@ -59,7 +59,7 @@
 		case EnemyTypeSafe005:
 			enemyFrameName = @"game_safe005.png";
             myScore = 500;
-			initialHitPoints = 3;
+			initialHitPoints = 2;
 			break;
 		case EnemyTypeSafe006:
 			enemyFrameName = @"game_safe006.png";
