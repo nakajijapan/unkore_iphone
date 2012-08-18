@@ -138,7 +138,7 @@ static EnemyCache* instanceOfEnemyCache;
 				break;
 			case EnemyTypeOut004:
 				capacity    = 10;
-                fruquency   = 50;
+                fruquency   = 70;
 				break;
 			default:
 				[NSException exceptionWithName:@"EnemyCache Exception" reason:@"unhandled enemy type" userInfo:nil];
