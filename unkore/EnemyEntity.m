@@ -203,7 +203,8 @@
         // ラベルを表示させる
         int tag = rand() % 1000 + 1000;
         CCLabelTTF* label = [CCLabelTTF labelWithString:@"バキューム！！" fontName:@"Marker Felt" fontSize: rand() % 60 + 10];
-        label.position = ccp(rand() % 280 + 10, rand() % 540 + 10);
+        label.position = ccp(rand() % 200 + 10, rand() % 400 + 30);
+        label.anchorPoint = ccp(0.5, 0.5);
         [gameScene addChild:label z:50 tag:tag];
         
         // フェードイン・アウトアニメーション

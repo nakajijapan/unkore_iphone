@@ -12,6 +12,7 @@
 #import "SceneManager.h"
 #import "GameScene.h"
 #import "HighScoreScene.h"
+#import "GameHelpScene.h"
 
 // GameKit
 #import <GameKit/GameKit.h>

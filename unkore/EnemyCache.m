@@ -46,8 +46,6 @@ static EnemyCache* instanceOfEnemyCache;
 }
 
 
-
-
 #pragma mark - 
 #pragma mark init Enemy
 -(id) init

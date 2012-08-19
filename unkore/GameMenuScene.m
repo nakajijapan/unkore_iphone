@@ -92,7 +92,8 @@
 }
 -(void) onHelp:(id)sender
 {
-    
+    CCTransitionSlideInR* trans = [CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:[GameHelpScene scene]];
+    [[CCDirector sharedDirector] replaceScene:trans];
 }
 // LeaderBoad
 -(void) onGameCenter:(id)sender
