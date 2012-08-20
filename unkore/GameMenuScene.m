@@ -49,19 +49,7 @@
     [menu alignItemsVerticallyWithPadding:10.0f];
     [self addChild:menu z: 2];
     
-    // back
-    /*
-    CCMenuItemFont *labelBack = [CCMenuItemFont itemWithString:@"back" target:self selector: @selector(onBack:)];
-    CCMenu *menuBack = [CCMenu menuWithItems:labelBack, nil];
-    menuBack.position = ccp(screenSize.width - labelBack.contentSize.width / 2, 20);
-    [self addChild:menuBack];
-     */
-    
-    // Musicのプレリロード
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_game_start.mp3"];
-    
     return self;
-    
 }
 
 +(id) scene
@@ -76,7 +64,6 @@
 #pragma mark メニュー押下時の処理
 -(void) onNewGame:(id)sender
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"unkore_game_start.mp3"];
     CCTransitionSplitRows* trans = [CCTransitionSplitRows transitionWithDuration:2 scene:[GameScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
     

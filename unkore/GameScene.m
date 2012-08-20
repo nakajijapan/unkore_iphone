@@ -101,20 +101,6 @@ static CGRect screenRect;
         screenRect = CGRectMake(0, 0, screenSize.width, screenSize.height);
         
         //----------------------------------------
-        // Load all of the game's artwork up front.
-        /*
-        screenRect = CGRectMake(0, 0, screenSize.width, screenSize.height);
-		CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
-		[frameCache addSpriteFramesWithFile:@"game-art.plist"];
-        EnemyCache* enemyCache = [EnemyCache node];
-		[self addChild:enemyCache z:20 tag:GameSceneNodeTagEnemyCache];
-        */
-
-        //--------------------
-        //_labelComment = [CCLabelTTF labelWithString:@"ボキューム！！" fontName:@"Marker Felt" fontSize: 32];
-        //[self addChild:_labelComment z:7];
-        
-        //----------------------------------------
         // 車表示
         CCSprite* carFrame = [CCSprite spriteWithFile:@"game_car.png"];
         //carFrame.position = CGPointMake(25, 15);
@@ -134,18 +120,6 @@ static CGRect screenRect;
         [carFrame runAction:[CCSequence actionOne:actions two:actionCallback]];
         
         //----------------------------------------
-        // ゲームスタートボタン
-        /*
-        _menuItemGameStart = [CCMenuItemImage itemWithNormalImage:@"game_ikuyo.png" selectedImage:nil target:self selector:@selector(onGameStart:)];
-        //_menuItemGameStart = [CCMenuItemFont itemWithString:@"ゲームスタート！" target:self selector:@selector(onGameStart:)];
-        CCMenu* menuStart = [CCMenu menuWithItems:_menuItemGameStart, nil];
-        menuStart.position = ccp( screenSize.width/2, screenSize.height/2);
-        //[menu alignItemsVertically]; 
-        _menuItemGameStart.visible = NO;
-        [self addChild:menuStart z:40 tag:GameSceneNodeTagLabelStart];
-         */
-        
-        
         // Add the particle effect to the GameScene, for these reasons:
 		// - self is a sprite added to a spritebatch and will only allow CCSprite nodes (it crashes if you try)
 		// - self is now invisible which might affect rendering of the particle effect
@@ -163,6 +137,7 @@ static CGRect screenRect;
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_vacume002.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_gameover.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"unkore_background.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_game_start.mp3"];
         
         //----------------------------------------
         // 現在のスコアを初期化
@@ -177,21 +152,36 @@ static CGRect screenRect;
 #pragma mark ゲーム開始前処理
 -(void) onStartGameStep1
 {
-    //[_hipLayer show];
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    
-    CCLOG(@"HipLayer show  : %f", screenSize.height);
-    
+    // アニメーションの設定
     id action1 = [CCMoveBy actionWithDuration:2.0f  position: ccp(0, -250)];
     id action2 = [CCEaseElasticOut actionWithAction:action1 period:0.35f];
-    //[_hipLayer runAction:action2];
-    // call back method
-    //id delay = [CCDelayTime actionWithDuration:2.0f];
-    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onGameStart:)];
+    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep2:)];
     [_hipLayer runAction:[CCSequence actionOne:action2 two:actionCallback]];
-    
 }
+
+-(void) onStartGameStep2:(id)sender
+{
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    // ラベルの配置設定
+    CCSprite* uiframe = [CCSprite spriteWithFile:@"game_ikuyo.png"];
+    uiframe.position = CGPointMake(screenSize.width / 2, screenSize.height / 2);
+    uiframe.anchorPoint = CGPointMake(0.5, 0.5);
+    uiframe.opacity = 1.0;
+    [self addChild:uiframe z:10 tag:GameSceneNodeTagLabelStart];
+        
+    // アニメーションの設定
+    id action1 = [CCFadeTo actionWithDuration:0.5 opacity:255];
+    id action2_1 = [CCScaleBy actionWithDuration:0.5f scale:2.0];
+    id action2_2 = [CCFadeTo actionWithDuration: 0.5f opacity:0];
+    id action2_3 = [CCRotateTo actionWithDuration:0.5f angle:360 * 10];
+    id action2   = [CCSpawn actions:action2_1, action2_2, action2_3, nil];
+    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onGameStart:)];
+    [uiframe runAction:[CCSequence actions:action1, action2, actionCallback, nil]];
+    
+    // do sound
+    [[SimpleAudioEngine sharedEngine] playEffect:@"unkore_game_start.mp3"];
+}
 
 #pragma mark -
 #pragma mark ゲーム開始処理
@@ -202,34 +192,11 @@ static CGRect screenRect;
     // music start
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"unkore_background.mp3"];
     
-    
-    // animation
-    /*
-    _menuItemGameStart.visible = YES;
-    id action1 = [CCScaleBy actionWithDuration:.5 scale:2.0];
-    id action2 = [CCFadeOut actionWithDuration:.5];
-    //id action3 = [CCRotateBy actionWithDuration:.5  angle: 2160];
-    //id actions = [CCSpawn actions:action1, action2, action3, nil];
-    id actions_after = [CCSpawn actions:action1, action2, nil];
-    id action_back = [CCFadeIn actionWithDuration:0.5];
-    id actions = [CCSequence actions:action_back, actions_after, nil];
-
-    // call back method
-    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartredGame)];
-    */
-    
-    //--------------------
     // アートワークに保存してある情報を画面にロードする
     _frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
     [_frameCache addSpriteFramesWithFile:@"game-art.plist"];
     EnemyCache* enemyCache = [EnemyCache node];
     [self addChild:enemyCache z:19 tag:GameSceneNodeTagEnemyCache];
-    
-    
-    //[_menuItemGameStart runAction:action];
-    //[_menuItemGameStart runAction:[CCSequence actionOne:actions two:actionCallback]];
-    
-    
 }
 -(void) onStartredGame
 {
