@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SceneManager.h"
 
 @interface GameHelpScene : CCLayer {
-    
+    UIScrollView* helpScrollView;
 }
 +(id)scene;
 @end

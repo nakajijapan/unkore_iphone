@@ -27,13 +27,23 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
 		
         //----------------------------------------
+        // back画像
+        CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"otohime_btn_back.png" selectedImage:nil target:self selector:@selector(onBack:)];
+        CCMenu* menuHome = [CCMenu menuWithItems:menuItemHome, nil];
+        menuHome.position       = CGPointMake(5, screenSize.height - 5);
+        menuItemHome.anchorPoint    = CGPointMake(0, 1);
+        [self addChild:menuHome z: 100];
+        
+        
+        //----------------------------------------
         // 背景画像
+        /*
 		//GameLayer* gameLayer = [GameLayer node];
 		//[self addChild:gameLayer z:10 tag:1];
 
-        UIScrollView* helpScrollView;
+        //UIScrollView* helpScrollView;
         helpScrollView = [[UIScrollView alloc] init];
-        helpScrollView.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
+        helpScrollView.frame = CGRectMake(0, 100, screenSize.width, screenSize.height -100);
         helpScrollView.backgroundColor = [UIColor blackColor];
         helpScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
@@ -52,7 +62,7 @@
         CGFloat x = 0;
         for (int i=0; i < 3; i++) {
             // content
-            CGRect rect = CGRectMake(x, 0, screenSize.width, screenSize.height);
+            CGRect rect = CGRectMake(x, 0, screenSize.width, screenSize.height -100);
             //UIImage *image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"background.png", i+1]];
             UIImage *image = [UIImage imageNamed:@"background.png"];
             UIImageView *view = [[[UIImageView alloc] initWithImage:image] autorelease];
@@ -64,20 +74,29 @@
         
         //[[CCDirector sharedDirector] addChildViewController:vc];
         [[[CCDirector sharedDirector] openGLView] addSubview:helpScrollView];
+         */
 
         //----------------------------------------
         // 枠画像
-        /*
         CCSprite* sideframe = [CCSprite spriteWithFile:@"game_waku.png"];
         sideframe.position = CGPointMake(0, screenSize.height);
         sideframe.anchorPoint = CGPointMake(0, 1);
         [self addChild:sideframe z:31];
-         */
     }
 
     
     return self;
-    
 }
+
+#pragma mark -
+#pragma mark 画面遷移
+-(void) onBack:(id)sender
+{
+    //[[[CCDirector sharedDirector] openGLView] removeFromSuperview];
+    [SceneManager goTopMenu:@"Fade"];
+}
+
+#pragma mark -
+#pragma mark lifecycle
 
 @end
