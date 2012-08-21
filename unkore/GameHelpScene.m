@@ -82,6 +82,23 @@
         sideframe.position = CGPointMake(0, screenSize.height);
         sideframe.anchorPoint = CGPointMake(0, 1);
         [self addChild:sideframe z:31];
+        
+		
+		CCSprite* spriteHelp01 = [CCSprite spriteWithFile:@"play_background.png"];
+		spriteHelp01.position = CGPointMake(0, screenSize.height);
+		spriteHelp01.anchorPoint = CGPointMake(0, 1);
+		[self addChild:spriteHelp01 z:0 tag:3];
+        
+        CCSprite* spriteHelp02 = [CCSprite spriteWithFile:@"play_background02.png"];
+		spriteHelp02.position = CGPointMake(screenSize.width * 2, screenSize.height);
+		spriteHelp02.anchorPoint = CGPointMake(0, 1);
+		[self addChild:spriteHelp02 z:0 tag:4];
+        
+        
+        CCSprite* spriteHelpNext = [CCSprite spriteWithFile:@"play_btn_next.png"];
+		spriteHelpNext.position = CGPointMake(screenSize.width / 2, 50);
+		spriteHelpNext.anchorPoint = CGPointMake(0.5, 0.5);
+		[self addChild:spriteHelpNext z:0 tag:3];
     }
 
     
@@ -93,7 +110,7 @@
 -(void) onBack:(id)sender
 {
     //[[[CCDirector sharedDirector] openGLView] removeFromSuperview];
-    [SceneManager goTopMenu:@"Fade"];
+    [SceneManager goGameMenu:@"Fade"];
 }
 
 #pragma mark -

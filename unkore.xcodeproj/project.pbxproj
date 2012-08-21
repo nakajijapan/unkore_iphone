@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E114C24315E3C0BF009D4DAE /* play_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23D15E3C0BF009D4DAE /* play_background-hd.png */; };
+		E114C24415E3C0BF009D4DAE /* play_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23E15E3C0BF009D4DAE /* play_background.png */; };
+		E114C24515E3C0BF009D4DAE /* play_background02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23F15E3C0BF009D4DAE /* play_background02-hd.png */; };
+		E114C24615E3C0BF009D4DAE /* play_background02.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C24015E3C0BF009D4DAE /* play_background02.png */; };
+		E114C24715E3C0BF009D4DAE /* play_btn_next-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C24115E3C0BF009D4DAE /* play_btn_next-hd.png */; };
+		E114C24815E3C0BF009D4DAE /* play_btn_next.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C24215E3C0BF009D4DAE /* play_btn_next.png */; };
 		E11F05DA15B3FFB600DD70DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11F05D915B3FFB500DD70DB /* QuartzCore.framework */; };
 		E11F05DC15B3FFB600DD70DB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11F05DB15B3FFB600DD70DB /* OpenGLES.framework */; };
 		E11F05DE15B3FFB600DD70DB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11F05DD15B3FFB600DD70DB /* OpenAL.framework */; };
@@ -291,6 +297,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E114C23D15E3C0BF009D4DAE /* play_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_background-hd.png"; sourceTree = "<group>"; };
+		E114C23E15E3C0BF009D4DAE /* play_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_background.png; sourceTree = "<group>"; };
+		E114C23F15E3C0BF009D4DAE /* play_background02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_background02-hd.png"; sourceTree = "<group>"; };
+		E114C24015E3C0BF009D4DAE /* play_background02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_background02.png; sourceTree = "<group>"; };
+		E114C24115E3C0BF009D4DAE /* play_btn_next-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_btn_next-hd.png"; sourceTree = "<group>"; };
+		E114C24215E3C0BF009D4DAE /* play_btn_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_btn_next.png; sourceTree = "<group>"; };
 		E11F05D515B3FFB500DD70DB /* unkore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unkore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11F05D915B3FFB500DD70DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E11F05DB15B3FFB600DD70DB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -752,6 +764,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E114C23C15E3C0BF009D4DAE /* GameHelp */ = {
+			isa = PBXGroup;
+			children = (
+				E114C23D15E3C0BF009D4DAE /* play_background-hd.png */,
+				E114C23E15E3C0BF009D4DAE /* play_background.png */,
+				E114C23F15E3C0BF009D4DAE /* play_background02-hd.png */,
+				E114C24015E3C0BF009D4DAE /* play_background02.png */,
+				E114C24115E3C0BF009D4DAE /* play_btn_next-hd.png */,
+				E114C24215E3C0BF009D4DAE /* play_btn_next.png */,
+			);
+			path = GameHelp;
+			sourceTree = "<group>";
+		};
 		E11F05CA15B3FFB500DD70DB = {
 			isa = PBXGroup;
 			children = (
@@ -1413,6 +1438,7 @@
 			children = (
 				E19D8EEF15DC164C00BEDDEF /* game_center-hd.png */,
 				E19D8EF015DC164C00BEDDEF /* game_center.png */,
+				E114C23C15E3C0BF009D4DAE /* GameHelp */,
 				E1934A7215BB5B7E00B1065B /* GameHighscore */,
 				E1934A0F15BB1C9300B1065B /* GameOver */,
 				E19349B615BB09A100B1065B /* GameArt */,
@@ -1638,6 +1664,12 @@
 				E19D8EF115DC164C00BEDDEF /* game_center-hd.png in Resources */,
 				E19D8EF215DC164C00BEDDEF /* game_center.png in Resources */,
 				E13BB4E815DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 in Resources */,
+				E114C24315E3C0BF009D4DAE /* play_background-hd.png in Resources */,
+				E114C24415E3C0BF009D4DAE /* play_background.png in Resources */,
+				E114C24515E3C0BF009D4DAE /* play_background02-hd.png in Resources */,
+				E114C24615E3C0BF009D4DAE /* play_background02.png in Resources */,
+				E114C24715E3C0BF009D4DAE /* play_btn_next-hd.png in Resources */,
+				E114C24815E3C0BF009D4DAE /* play_btn_next.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
