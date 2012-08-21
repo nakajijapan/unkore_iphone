@@ -53,10 +53,9 @@
         menuMain.position = ccp(screenSize.width / 2, screenSize.height / 2);
         [self addChild:menuMain z: 2];
          */
-        
 
-        // back画像
-        CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"otohime_btn_back.png" selectedImage:nil target:self selector:@selector(onBack:)];
+        // ホーム画像
+        CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_home.png" selectedImage:nil target:self selector:@selector(onBack:)];
         CCMenu* menuHome = [CCMenu menuWithItems:menuItemHome, nil];
         menuHome.position       = CGPointMake(5, screenSize.height - 5);
         menuItemHome.anchorPoint    = CGPointMake(0, 1);
