@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SceneManager.h"
 
 @interface GameHelpScene : CCLayer {
+    //UIScrollView* helpScrollView;
     
+    CCSprite* spriteHelp01;
+    CCSprite* spriteHelp02;
+    CCMenuItemImage* menuArrow;
+    int page;
 }
 +(id)scene;
 @end
