@@ -53,7 +53,6 @@
         menuMain.position = ccp(screenSize.width / 2, screenSize.height / 2);
         [self addChild:menuMain z: 2];
          */
-        
 
         // ホーム画像
         CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_home.png" selectedImage:nil target:self selector:@selector(onBack:)];

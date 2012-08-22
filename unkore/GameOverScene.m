@@ -92,7 +92,7 @@
         int highScore = [defaults integerForKey:@"NOW_SCORE"];
         
         // set initial text
-        NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのうんこを持ち帰りました。#中島清掃局", highScore];
+        NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのスイーツを持ち帰りました。#中島清掃局", highScore];
         [tweetViewController setInitialText:message];
         
         // setup completion handler
