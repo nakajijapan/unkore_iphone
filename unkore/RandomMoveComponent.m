@@ -29,11 +29,11 @@
 #pragma mark random
 - (float) randomDuration
 {
-    return CCRANDOM_0_1() + 0.5;
+    return CCRANDOM_0_1() + 1.0;
 }
 - (float) randomBeteen
 {
-    // 0 or 1
+    // 0 - 2
     return (int)(CCRANDOM_0_1() * 100) % 3;
 }
 
