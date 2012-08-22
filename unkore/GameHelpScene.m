@@ -83,25 +83,34 @@
         sideframe.anchorPoint = CGPointMake(0, 1);
         [self addChild:sideframe z:31];
         
-		
-		CCSprite* spriteHelp01 = [CCSprite spriteWithFile:@"play_background.png"];
+		//----------------------------------------
+        // ヘルプ１
+        spriteHelp01 = [CCSprite spriteWithFile:@"play_background.png"];
 		spriteHelp01.position = CGPointMake(0, screenSize.height);
 		spriteHelp01.anchorPoint = CGPointMake(0, 1);
 		[self addChild:spriteHelp01 z:0 tag:3];
         
-        CCSprite* spriteHelp02 = [CCSprite spriteWithFile:@"play_background02.png"];
+        //----------------------------------------
+        // ヘルプ２
+        spriteHelp02 = [CCSprite spriteWithFile:@"play_background02.png"];
 		spriteHelp02.position = CGPointMake(screenSize.width * 2, screenSize.height);
 		spriteHelp02.anchorPoint = CGPointMake(0, 1);
 		[self addChild:spriteHelp02 z:0 tag:4];
         
+        //----------------------------------------
+        // メニュー
+        menuArrow = [CCMenuItemImage itemWithNormalImage:@"play_btn_next.png" selectedImage:nil target:self selector:@selector(onMoveRight:)];
+        CCMenu *menu = [CCMenu menuWithItems:menuArrow, nil];
+        menu.position = ccp(screenSize.width / 2, 50);
+        menu.anchorPoint = ccp(0.5, 0.5);
+        [menu alignItemsVerticallyWithPadding:0.0f];
+        [self addChild:menu z: 2];
         
-        CCSprite* spriteHelpNext = [CCSprite spriteWithFile:@"play_btn_next.png"];
-		spriteHelpNext.position = CGPointMake(screenSize.width / 2, 50);
-		spriteHelpNext.anchorPoint = CGPointMake(0.5, 0.5);
-		[self addChild:spriteHelpNext z:0 tag:3];
+        
+        // page
+        page = 1;
     }
 
-    
     return self;
 }
 
@@ -109,8 +118,40 @@
 #pragma mark 画面遷移
 -(void) onBack:(id)sender
 {
-    //[[[CCDirector sharedDirector] openGLView] removeFromSuperview];
     [SceneManager goGameMenu:@"Fade"];
+}
+
+-(void) onMoveRight:(id)sender
+{
+    CCLOG(@"%s",__FUNCTION__);
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+
+    id move1;
+    id move2;
+    id move3;
+
+    // to 2 page
+    if (page == 1) {
+        move1 = [CCMoveTo actionWithDuration:.2f  position: ccp(-screenSize.width,screenSize.height)];
+        move2 = [CCMoveTo actionWithDuration:.2f  position: ccp(0,screenSize.height)];
+        
+        [spriteHelp01 runAction:move1];
+        [spriteHelp02 runAction:move2];
+        
+        page = 2;
+    }
+    // to 1 page
+    else if (page == 2) {
+        move1 = [CCMoveTo actionWithDuration:.2f  position: ccp(0,screenSize.height)];
+        move2 = [CCMoveTo actionWithDuration:.2f  position: ccp(screenSize.width,screenSize.height)];
+        
+        [spriteHelp01 runAction:move1];
+        [spriteHelp02 runAction:move2];
+        page = 1;
+    }
+    
+    move3 = [CCRotateBy actionWithDuration:.2f angle: 180];
+    [menuArrow runAction:move3];
 }
 
 #pragma mark -

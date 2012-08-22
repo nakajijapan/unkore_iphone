@@ -11,7 +11,12 @@
 #import "SceneManager.h"
 
 @interface GameHelpScene : CCLayer {
-    UIScrollView* helpScrollView;
+    //UIScrollView* helpScrollView;
+    
+    CCSprite* spriteHelp01;
+    CCSprite* spriteHelp02;
+    CCMenuItemImage* menuArrow;
+    int page;
 }
 +(id)scene;
 @end
