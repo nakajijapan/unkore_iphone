@@ -49,6 +49,9 @@
     [menu alignItemsVerticallyWithPadding:10.0f];
     [self addChild:menu z: 2];
     
+    
+    CCLOG(@"%s", __FUNCTION__);
+    
     return self;
 }
 
@@ -57,6 +60,7 @@
 	CCScene* scene = [CCScene node];
 	GameMenuScene* layer = [GameMenuScene node];
 	[scene addChild:layer];
+    
 	return scene;
 }
 
@@ -64,6 +68,20 @@
 #pragma mark メニュー押下時の処理
 -(void) onNewGame:(id)sender
 {
+    // GameCenterの認証チェック
+    CCLOG(@"GameCenterの認証チェック");
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    [localPlayer authenticateWithCompletionHandler:^(NSError *error)     {
+        if (localPlayer.isAuthenticated) {
+            // Game Centerが有効でローカルプレーヤーが認証済みの場合の処理
+            CCLOG(@"認証に成功しています");
+        }
+        else {
+            // Game Centerが無効の場合の処理
+            CCLOG(@"認証に成功していません");
+        }
+    }];
+    
     CCTransitionSplitRows* trans = [CCTransitionSplitRows transitionWithDuration:2 scene:[GameScene scene]];
     [[CCDirector sharedDirector] replaceScene:trans];
     
