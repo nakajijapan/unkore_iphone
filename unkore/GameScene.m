@@ -126,26 +126,12 @@ static CGRect screenRect;
         }
         
         //----------------------------------------
-        // Add the particle effect to the GameScene, for these reasons:
-		// - self is a sprite added to a spritebatch and will only allow CCSprite nodes (it crashes if you try)
-		// - self is now invisible which might affect rendering of the particle effect
-		// - since the particle effects are short lived, there is no harm done by adding them directly to the GameScene
-        /*
-        CCParticleSystem* system = [CCParticleFlower node];
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        system.position = CGPointMake(winSize.width / 2, winSize.height / 2);
-        [self addChild:system z:100 tag:100];
-         */
-        
-        //----------------------------------------
         // サウンドのプレリロード
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_vacume001.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_vacume002.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_gameover.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"unkore_background.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_game_start.mp3"];
-        
-
 	}
 	
 	return self;
