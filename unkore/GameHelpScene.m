@@ -27,15 +27,6 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
 		
         //----------------------------------------
-        // back画像
-        CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"otohime_btn_back.png" selectedImage:nil target:self selector:@selector(onBack:)];
-        CCMenu* menuHome = [CCMenu menuWithItems:menuItemHome, nil];
-        menuHome.position       = CGPointMake(5, screenSize.height - 5);
-        menuItemHome.anchorPoint    = CGPointMake(0, 1);
-        [self addChild:menuHome z: 100];
-        
-        
-        //----------------------------------------
         // 背景画像
         /*
 		//GameLayer* gameLayer = [GameLayer node];
@@ -79,33 +70,41 @@
         //----------------------------------------
         // 枠画像
         CCSprite* sideframe = [CCSprite spriteWithFile:@"game_waku.png"];
-        sideframe.position = CGPointMake(0, screenSize.height);
-        sideframe.anchorPoint = CGPointMake(0, 1);
+        sideframe.position      = ccp(0, screenSize.height);
+        sideframe.anchorPoint   = ccp(0, 1);
         [self addChild:sideframe z:31];
+        
+        //----------------------------------------
+        // back画像
+        // ホーム画像
+        CCMenuItemImage* menuItemHome = [CCMenuItemImage itemWithNormalImage:@"otohime_btn_back.png" selectedImage:nil target:self selector:@selector(onBack:)];
+        CCMenu* menuHome = [CCMenu menuWithItems:menuItemHome, nil];
+        menuHome.position           = ccp(5, screenSize.height - 5);
+        menuItemHome.anchorPoint    = ccp(0, 1);
+        [self addChild:menuHome z:100];
         
 		//----------------------------------------
         // ヘルプ１
         spriteHelp01 = [CCSprite spriteWithFile:@"play_background.png"];
-		spriteHelp01.position = CGPointMake(0, screenSize.height);
-		spriteHelp01.anchorPoint = CGPointMake(0, 1);
-		[self addChild:spriteHelp01 z:0 tag:3];
+		spriteHelp01.position       = ccp(0, screenSize.height);
+		spriteHelp01.anchorPoint    = ccp(0, 1);
+		[self addChild:spriteHelp01 z:1 tag:3];
         
         //----------------------------------------
         // ヘルプ２
         spriteHelp02 = [CCSprite spriteWithFile:@"play_background02.png"];
-		spriteHelp02.position = CGPointMake(screenSize.width * 2, screenSize.height);
-		spriteHelp02.anchorPoint = CGPointMake(0, 1);
-		[self addChild:spriteHelp02 z:0 tag:4];
+		spriteHelp02.position       = ccp(screenSize.width * 2, screenSize.height);
+		spriteHelp02.anchorPoint    = ccp(0, 1);
+		[self addChild:spriteHelp02 z:2 tag:4];
         
         //----------------------------------------
-        // メニュー
+        // 矢印
         menuArrow = [CCMenuItemImage itemWithNormalImage:@"play_btn_next.png" selectedImage:nil target:self selector:@selector(onMoveRight:)];
         CCMenu *menu = [CCMenu menuWithItems:menuArrow, nil];
-        menu.position = ccp(screenSize.width / 2, 50);
+        menu.position    = ccp(screenSize.width / 2, 50);
         menu.anchorPoint = ccp(0.5, 0.5);
         [menu alignItemsVerticallyWithPadding:0.0f];
-        [self addChild:menu z: 2];
-        
+        [self addChild:menu z:10];
         
         // page
         page = 1;

@@ -54,9 +54,9 @@
 -(void) show
 {
     
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    //CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
-    CCLOG(@"HipLayer show  : %f", screenSize.height);
+    //CCLOG(@"HipLayer show  : %f", screenSize.height);
     
     id action1 = [CCMoveBy actionWithDuration:2.0f  position: ccp(0, -250)];
     id action2 = [CCEaseElasticOut actionWithAction:action1 period:0.35f];
