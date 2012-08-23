@@ -164,7 +164,7 @@
 	CGRect screenRect = [GameScene screenRect];
 	//CGSize spriteSize = [self contentSize];
     
-    CCLOG(@"spawn enemy %d ", screenRect.size);
+    //CCLOG(@"spawn enemy %d ", screenRect.size);
     
     // 上から出現させる
     float xPos = screenRect.size.width / 2;

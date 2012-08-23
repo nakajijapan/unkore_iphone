@@ -267,6 +267,18 @@ static CGRect screenRect;
         [defaults setInteger:_nowScore forKey:@"HIGH_SCORE"];
         [defaults synchronize];
         CCLOG(@"high score now!!!!!!!!!!!! > %d", [defaults integerForKey:@"HIGH_SCORE"]);
+        
+        // GameCenterに送信する
+        GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:@"highscore"] autorelease]; //＠にiTunes connectで登録したGamecenterのIDを入れる
+        scoreReporter.value = (NSInteger)_nowScore;
+        [scoreReporter reportScoreWithCompletionHandler:^(NSError *error){
+            if (error != nil) {
+                CCLOG(@"点数の送信　失敗！");
+            }
+            else {
+                CCLOG(@"点数の送信　成功！");
+            }
+        }];
     }
 }
 -(int)nowScore

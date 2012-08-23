@@ -56,7 +56,6 @@
         [menu alignItemsVerticallyWithPadding: 20.0f];
         [self addChild:menu z: 11];
         
-       
         self.isTouchEnabled = YES;
     }
     
