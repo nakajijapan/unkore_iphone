@@ -14,6 +14,9 @@
 //#import "CCParticleGoldUnko.h"
 #import "CCParticleExamples.h"
 
+// GameKit
+#import <GameKit/GameKit.h>
+
 typedef enum
 {
 	EnemyTypeSafe001 = 0,
