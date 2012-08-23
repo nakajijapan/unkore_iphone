@@ -38,6 +38,7 @@ typedef enum
     CCSpriteFrameCache* _frameCache;
     
     CCSprite* _hipLayer;
+    CCSprite* _firstHelp;
 }
 +(id) scene;
 

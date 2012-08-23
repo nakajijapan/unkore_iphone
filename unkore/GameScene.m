@@ -55,16 +55,17 @@ static CGRect screenRect;
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
 		
         //----------------------------------------
+        // 現在のスコアを初期化
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:0 forKey:@"NOW_SCORE"];
+        
+        //----------------------------------------
         // 背景画像
 		GameLayer* gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:10 tag:LayerTagGameLayer];
 		
         //----------------------------------------
         // お尻画像
-        /*
-		_hipLayer = [HipLayer node];
-		[self addChild:_hipLayer z:30 tag:LayerTagHipLayer];
-         */
 		_hipLayer = [CCSprite spriteWithFile:@"game_hip001.png"];
 		_hipLayer.position = CGPointMake(0, screenSize.height + 250);
 		_hipLayer.anchorPoint = CGPointMake(0, 1);
@@ -101,23 +102,28 @@ static CGRect screenRect;
         screenRect = CGRectMake(0, 0, screenSize.width, screenSize.height);
         
         //----------------------------------------
-        // 車表示
-        CCSprite* carFrame = [CCSprite spriteWithFile:@"game_car.png"];
-        //carFrame.position = CGPointMake(25, 15);
-        carFrame.position = CGPointMake(screenSize.width, 15);
-        carFrame.anchorPoint = CGPointMake(0, 0);
-        [self addChild:carFrame z:20];
-        
-        id delay = [CCDelayTime actionWithDuration:4.0f];
-        id action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,15)];
-        id ease = [CCEaseIn actionWithAction:action rate:0.3];
-        //id ease = [CCEaseElasticIn actionWithAction:action period:0.3f];
-        id actions = [CCSequence actions:delay, ease, nil];
-        
-        // call back method
-        id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep1)];
-        //[carFrame runAction: actions];
-        [carFrame runAction:[CCSequence actionOne:actions two:actionCallback]];
+        // ヘルプ表示
+        if ([defaults integerForKey:@"IS_FIRST_GAME"] != 1) {
+            _firstHelp = [CCSprite spriteWithFile:@"game_first_background.png" ];
+            _firstHelp.position = ccp(0, screenSize.height);
+            _firstHelp.anchorPoint = CGPointMake(0, 1);
+            [_firstHelp setOpacity:0];
+            [self addChild:_firstHelp z:40 tag:100];
+            
+            id action0 = [CCDelayTime actionWithDuration:3.0f];
+            id action1 = [CCFadeTo actionWithDuration:1.0f opacity:255];
+            id action2 = [CCDelayTime actionWithDuration:3.0f];
+            id action3 = [CCFadeTo actionWithDuration:1.0f opacity:0];
+            id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep0)];
+            CCSequence *sequence = [CCSequence actions:action0, action1, action2, action3, actionCallback, nil];
+            
+            [_firstHelp runAction:sequence];
+            
+            [defaults setInteger:1 forKey:@"IS_FIRST_GAME"];
+        }
+        else {
+            [self onStartGameStep0];
+        }
         
         //----------------------------------------
         // Add the particle effect to the GameScene, for these reasons:
@@ -139,10 +145,7 @@ static CGRect screenRect;
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"unkore_background.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_game_start.mp3"];
         
-        //----------------------------------------
-        // 現在のスコアを初期化
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setValue:0 forKey:@"NOW_SCORE"];
+
 	}
 	
 	return self;
@@ -150,6 +153,33 @@ static CGRect screenRect;
 
 #pragma mark -
 #pragma mark ゲーム開始前処理
+-(void) onStartGameStep0
+{
+    // window size
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    // ヘルプ画面削除
+    [_firstHelp removeChildByTag:100 cleanup:YES];
+    
+    // 車
+    CCSprite* carFrame = [CCSprite spriteWithFile:@"game_car.png"];
+    carFrame.position = CGPointMake(screenSize.width, 15);
+    carFrame.anchorPoint = CGPointMake(0, 0);
+    [self addChild:carFrame z:20];
+    
+    id delay = [CCDelayTime actionWithDuration:4.0f];
+    id action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,15)];
+    id ease = [CCEaseIn actionWithAction:action rate:0.3];
+    //id ease = [CCEaseElasticIn actionWithAction:action period:0.3f];
+    id actions = [CCSequence actions:delay, ease, nil];
+    
+    // call back method
+    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep1)];
+    //[carFrame runAction: actions];
+    //[carFrame runAction:[CCSequence actionOne:actions two:actionCallback]];
+    [carFrame runAction:[CCSequence actions:actions, actionCallback, nil]];
+}
+
 -(void) onStartGameStep1
 {
     // アニメーションの設定

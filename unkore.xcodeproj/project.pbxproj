@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1112CD915E66D6500E2FC30 /* game_first_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E1112CD715E66D6500E2FC30 /* game_first_background-hd.png */; };
+		E1112CDA15E66D6500E2FC30 /* game_first_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E1112CD815E66D6500E2FC30 /* game_first_background.png */; };
 		E114C24315E3C0BF009D4DAE /* play_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23D15E3C0BF009D4DAE /* play_background-hd.png */; };
 		E114C24415E3C0BF009D4DAE /* play_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23E15E3C0BF009D4DAE /* play_background.png */; };
 		E114C24515E3C0BF009D4DAE /* play_background02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E114C23F15E3C0BF009D4DAE /* play_background02-hd.png */; };
@@ -295,6 +297,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1112CD715E66D6500E2FC30 /* game_first_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_first_background-hd.png"; sourceTree = "<group>"; };
+		E1112CD815E66D6500E2FC30 /* game_first_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_first_background.png; sourceTree = "<group>"; };
 		E114C23D15E3C0BF009D4DAE /* play_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_background-hd.png"; sourceTree = "<group>"; };
 		E114C23E15E3C0BF009D4DAE /* play_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_background.png; sourceTree = "<group>"; };
 		E114C23F15E3C0BF009D4DAE /* play_background02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_background02-hd.png"; sourceTree = "<group>"; };
@@ -1432,6 +1436,8 @@
 			children = (
 				E19D8EEF15DC164C00BEDDEF /* game_center-hd.png */,
 				E19D8EF015DC164C00BEDDEF /* game_center.png */,
+				E1112CD715E66D6500E2FC30 /* game_first_background-hd.png */,
+				E1112CD815E66D6500E2FC30 /* game_first_background.png */,
 				E114C23C15E3C0BF009D4DAE /* GameHelp */,
 				E1934A7215BB5B7E00B1065B /* GameHighscore */,
 				E1934A0F15BB1C9300B1065B /* GameOver */,
@@ -1662,6 +1668,8 @@
 				E114C24615E3C0BF009D4DAE /* play_background02.png in Resources */,
 				E114C24715E3C0BF009D4DAE /* play_btn_next-hd.png in Resources */,
 				E114C24815E3C0BF009D4DAE /* play_btn_next.png in Resources */,
+				E1112CD915E66D6500E2FC30 /* game_first_background-hd.png in Resources */,
+				E1112CDA15E66D6500E2FC30 /* game_first_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
