@@ -184,8 +184,22 @@
 -(void) gotHit
 {
 	hitPoints--;
-	if (hitPoints <= 0)
-	{
+	if (hitPoints <= 0)	{
+
+        // ゴールドスイーツを倒したら称号をもらう
+        if (type == EnemyTypeSafe100) {
+            GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:@"1"] autorelease];
+            achievement.percentComplete = 100;
+            [achievement reportAchievementWithCompletionHandler:^(NSError *error){
+                if (error != nil) {
+                    CCLOG(@"achievementの送信　失敗！");
+                }
+                else {
+                    CCLOG(@"achievementの送信　成功！");
+                }
+            }];
+        }
+        
         // music start
         NSString* soundName = [NSString stringWithFormat:@"unkore_vacume%03d.mp3", (rand() % 2 + 1)];
         [[SimpleAudioEngine sharedEngine] playEffect:soundName];
@@ -211,10 +225,10 @@
         CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.7 ];
         CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.7 ];
         CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
-        
         [label runAction:pulseSequence];
         [label removeChildByTag:tag cleanup:YES];
         
+        // スコア加算
         [gameScene updateScore:myScore];
 	}
 }
