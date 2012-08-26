@@ -69,7 +69,7 @@
 		case EnemyTypeSafe100:
 			enemyFrameName = @"game_safe100.png";
             myScore = 5000;
-			initialHitPoints = 10;
+			initialHitPoints = 8;
 			break;  
         //-----------------------------------------------
         // はずれ
@@ -112,9 +112,6 @@
             [self addChild:[StandardMoveComponent node]];
         }
                
-		// Create the game logic components
-		//[self addChild:[StandardMoveComponent node]];
-		
 		// enemies start invisible
 		self.visible = NO;
         

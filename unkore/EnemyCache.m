@@ -55,13 +55,9 @@ static EnemyCache* instanceOfEnemyCache;
         // シングルトン
         instanceOfEnemyCache = self;
        
-		// get any image from the Texture Atlas we're using
         // テクスチャアトラスからいずれかの画像を取得する
 		CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"game_safe001.png"];
         batch = [CCSpriteBatchNode batchNodeWithTexture:frame.texture];
-        
-        //CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"monster-a.png"];
-        //batch = [CCSpriteBatchNode batchNodeWithTexture:texture];
 		[self addChild:batch];
 		
         // 敵初期化
@@ -72,7 +68,6 @@ static EnemyCache* instanceOfEnemyCache;
         
         // ゲームモード移行時の処理フラグ
         cacheFlgForGameMode = NO;
-        
 	}
 	
 	return self;
@@ -80,13 +75,14 @@ static EnemyCache* instanceOfEnemyCache;
 
 -(void) initEnemies
 {
-	// create the enemies array containing further arrays for each type
+    // それぞれの敵の配列に含まれている敵の配列を作成する
 	enemies = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
 	
+    // 初期化
     totalSpawnSize = 0;
     spawnFrequency = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
     
-	// create the arrays for each type
+    // 敵ごとの配列を作成する
 	for (int i = 0; i < EnemyType_MAX; i++)
 	{
 		// depending on enemy type the array capacity is set to hold the desired number of enemies
@@ -221,6 +217,7 @@ static EnemyCache* instanceOfEnemyCache;
         
         // アニメーション処理
         if (1 <= difficultModeCount && difficultModeCount <= 7) {
+            // start
             if (difficultModeCount == 1) {
                 CCParticleSystem* system = [CCParticleFireworks node];// げり
                 CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -236,6 +233,7 @@ static EnemyCache* instanceOfEnemyCache;
                 [[SimpleAudioEngine sharedEngine] preloadEffect:@"unkore_gememode_difficult001.mp3"];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"unkore_gememode_difficult001.mp3"];
             }
+            // end
             else if (difficultModeCount == 7) {
                 // 発生サイクルを短くする
                 [[GameScene sharedGameScene] removeChildByTag:100 cleanup:YES];
@@ -282,14 +280,10 @@ static EnemyCache* instanceOfEnemyCache;
     
     // 利用されていない敵を発生（表示）させる
 	CCARRAY_FOREACH(enemiesOfType, enemy) {
-        
-        //CCLOG(@"enemiesOfType = %d", enemiesOfType);
-        
-		// find the first free enemy and respawn it
+
+        // 利用していない敵を再利用する
 		if (enemy.visible == NO) {
 			[enemy spawn];
-            
-            //CCLOG(@"enemiesOfType = %s", __FUNCTION__);
 			break;
 		}
 	}
@@ -314,7 +308,6 @@ static EnemyCache* instanceOfEnemyCache;
 -(void) dealloc
 {
     // 敵を初期位置に戻す
-    //[[EnemyCache sharedEnemyCache] initSpawnEnemies];
     [self initSpawnEnemies];
     
 	[enemies release];

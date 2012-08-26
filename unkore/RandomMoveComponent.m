@@ -57,6 +57,7 @@
             CGSize screenSize = [[CCDirector sharedDirector] winSize];
             moveType = [self randomBeteen];
 
+            // 敵の動きの種類
             if (moveType == 0) {
                 velocity = CGPointMake(screenSize.width * 3/4,  screenSize.height* 3/4);
             }
@@ -120,6 +121,7 @@
 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    // 敵の動きの種類
     if (moveType == 0) {
         id move1 = [CCMoveTo actionWithDuration:[self randomDuration] position:CGPointMake(0, screenSize.height * 3 / 5)];
         id ease1 = [CCEaseBounceOut actionWithAction:move1];

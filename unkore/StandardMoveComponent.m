@@ -50,9 +50,6 @@
         // 特定の位置にきた時点での操作
         if (entity.position.y <= -300) {
             
-            CCLOG(@"set no visible");
-            CCLOG(@"---- %@", NSStringFromCGPoint(entity.position));
-            
             // 見えない位置へ
             [entity setPosition: CGPointMake(entity.position.x, -500)];
             
@@ -69,7 +66,6 @@
             if (entity.type < EnemyTypeOut001) {
                 // 最後までタッチしきれなかったらゲームオーバ
                 if (entity.hitPoints >= 1) {
-                    CCLOG(@"game over: タッチしきれなかった！");
                     [[GameScene sharedGameScene] onGameOver];
                 }
             }
