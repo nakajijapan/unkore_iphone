@@ -41,7 +41,17 @@
             CGSize screenSize = [[CCDirector sharedDirector] winSize];
             isMoving = YES;
             id moveTo       = [CCMoveTo actionWithDuration:.5f position:ccp(screenSize.width / 2, screenSize.height * 0.4 )];
-            id delayOneSec  = [CCDelayTime actionWithDuration:1.0f];
+            
+            // 激ムズモード
+            id delayOneSec;
+            if ([[EnemyCache sharedEnemyCache] difficultModeCount] == 100) {
+                delayOneSec  = [CCDelayTime actionWithDuration:0.6f];
+            }
+            else {
+                delayOneSec  = [CCDelayTime actionWithDuration:1.0f];
+            }
+            
+            
             id moveEnd      = [CCMoveTo actionWithDuration:.1f position:ccp(screenSize.width / 2, -200)];
             CCSequence* sequence = [CCSequence actions:moveTo, delayOneSec, moveEnd, nil];
             [entity runAction:sequence];

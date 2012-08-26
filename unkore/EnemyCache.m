@@ -19,6 +19,7 @@
 
 // property
 @synthesize updateCount;
+@synthesize difficultModeCount;
 
 
 // 敵発生用配列
@@ -149,7 +150,6 @@ static EnemyCache* instanceOfEnemyCache;
 	}
     
     // 重み情報初期化
-    //[spawnFrequencyInfo initWithCapacity:totalSpawnSize];
     spawnFrequencyInfo = [[CCArray alloc] initWithCapacity:totalSpawnSize];
     for (int i = 0; i < EnemyType_MAX; i++) {
         int enemyCount = [[spawnFrequency objectAtIndex:i] intValue];

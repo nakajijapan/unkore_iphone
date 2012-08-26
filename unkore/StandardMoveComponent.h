@@ -12,6 +12,7 @@
 #import "Entity.h"
 #import "GameScene.h"
 #import "EnemyEntity.h"
+#import "EnemyCache.h"
 
 // Why is it derived from CCSprite? Because enemies use a SpriteBatch, and CCSpriteBatchNode requires that all
 // child nodes added to it are CCSprite. Under other circumstances I would use a CCNode as parent class of course, since
@@ -23,4 +24,3 @@
 }
 
 @end
-
