@@ -278,13 +278,17 @@ static CGRect screenRect;
     // 現在のスコアを保存
     [defaults setInteger:_nowScore forKey:@"NOW_SCORE"];
     
+    //------------------------------------------
     // ハイスコア
+    //------------------------------------------
     if (highScore < _nowScore) {
         [defaults setInteger:_nowScore forKey:@"HIGH_SCORE"];
         [defaults synchronize];
         CCLOG(@"high score now!!!!!!!!!!!! > %d", [defaults integerForKey:@"HIGH_SCORE"]);
         
+        //------------------------------------------
         // GameCenterに送信する
+        //------------------------------------------
         GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:@"highscore"] autorelease]; //＠にiTunes connectで登録したGamecenterのIDを入れる
         scoreReporter.value = (NSInteger)_nowScore;
         [scoreReporter reportScoreWithCompletionHandler:^(NSError *error){
@@ -297,7 +301,9 @@ static CGRect screenRect;
         }];
     }
     
+    //------------------------------------------
     // GameCenterに送信する
+    //------------------------------------------
     if (_nowScore >= 10000) {
         GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:@"2"] autorelease];
         achievement.percentComplete = 100;
@@ -310,9 +316,18 @@ static CGRect screenRect;
             }
         }];
     }
-    
-    
-    
+    else if (_nowScore >= 20000) {
+        GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:@"3"] autorelease];
+        achievement.percentComplete = 100;
+        [achievement reportAchievementWithCompletionHandler:^(NSError *error){
+            if (error != nil) {
+                CCLOG(@"achievementの送信　失敗！");
+            }
+            else {
+                CCLOG(@"achievementの送信　成功！");
+            }
+        }];
+    }
 }
 -(int)nowScore
 {
@@ -323,8 +338,6 @@ static CGRect screenRect;
 #pragma mark lifecycle
 -(void) dealloc
 {
-	CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
-	
 	// The Layer will be gone now, to avoid crashes on further access it needs to be nil.
 	instanceOfGameScene = nil;
     
