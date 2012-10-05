@@ -50,11 +50,22 @@
         
         // メニュー
         CCMenuItemImage* menuMain1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_retry.png"   selectedImage:nil target:self selector:@selector(onRestart:)];
-        CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
-        CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
-        menu.position = ccp(screenSize.width / 2, 100);
+        CCMenu *menu = [CCMenu menuWithItems:menuMain1, nil];
+        // CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
+        //CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
+        menu.position = ccp(screenSize.width / 2, 130);
         [menu alignItemsVerticallyWithPadding: 20.0f];
         [self addChild:menu z: 11];
+        
+        
+        // メニュー
+        CCMenuItemImage* menuSocial1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
+        CCMenuItemImage* menuSocial2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onFacebook:)];
+        CCMenu *menuSocial = [CCMenu menuWithItems:menuSocial1, menuSocial2, nil];
+        menuSocial.position = ccp(screenSize.width / 2, 60);
+        //[menuSocial alignItemsVerticallyWithPadding: 20.0f];
+        [menuSocial alignItemsHorizontallyWithPadding: 20.0f];
+        [self addChild:menuSocial z: 11];
         
         self.isTouchEnabled = YES;
     }
@@ -123,4 +134,46 @@
     }
 }
 
+
+- (void) onFacebook:(id)sender
+{
+    // for iOS6
+    // クラスが利用できるか
+    if(NSClassFromString(@"SLComposeViewController") != nil) {
+        // view
+        SLComposeViewController *facebookViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        // サービスにログインできるか
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+            SLComposeViewControllerCompletionHandler __block completionHandler = ^(SLComposeViewControllerResult result) {
+                [facebookViewController dismissViewControllerAnimated:YES completion:nil];
+                switch(result) {
+                    case SLComposeViewControllerResultDone: {
+                        NSLog(@"Posted....");
+                    }
+                        break;
+                    default:{
+                        NSLog(@"Cancelled.....");
+                    }
+                        break;
+                }
+            };
+
+            // ハイスコア取得
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            int highScore = [defaults integerForKey:@"NOW_SCORE"];
+            
+            // set initial text
+            NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのスイーツを持ち帰りました。", highScore];
+            
+            
+            [facebookViewController setInitialText:message];
+            [facebookViewController addURL:[NSURL URLWithString:@"http://vacuum.nakajijapan.net"]];
+            [facebookViewController setCompletionHandler:completionHandler];
+            
+            [[CCDirector sharedDirector] addChildViewController:viewController];
+            [viewController presentViewController:facebookViewController animated:YES completion:nil];
+        }
+    }
+}
 @end
