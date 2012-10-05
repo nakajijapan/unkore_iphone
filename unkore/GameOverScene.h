@@ -11,6 +11,7 @@
 
 #import "SceneManager.h"
 #import <Twitter/Twitter.h>
+#import <Social/Social.h>
 
 @interface GameOverScene : CCLayer {
     UIViewController* viewController;
