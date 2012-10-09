@@ -1,10 +1,13 @@
+# Bureau of Nakajima Cleansing - 中島清掃局
 
-# 中島清掃局
+## What is this?
+* This is shooting game.
+* This game is used Cocos2D.
 
-## 機能
- * ソフトクリームをバキュームするゲーム(シューティングゲーム)
- * 音姫機能（トイレで音を消す機能です）
 
+## Features
+ * Shooting Game - The game which vacuums the garbage bag which falls 
+ * The Otohime - Some Musics which put out the sound of the restroom
 
 
 
