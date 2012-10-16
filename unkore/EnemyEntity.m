@@ -201,7 +201,7 @@
         }
         
         // music start
-        NSString* soundName = [NSString stringWithFormat:@"unkore_vacume%03d.mp3", (rand() % 2 + 1)];
+        NSString* soundName = [NSString stringWithFormat:@"unkore_vacume%03d.mp3", (rand() % 5 + 1)];
         [[SimpleAudioEngine sharedEngine] playEffect:soundName];
         CCLOG(@"soundname = %@", soundName);
         
