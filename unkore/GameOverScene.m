@@ -60,11 +60,11 @@
         
         // メニュー
         CCMenuItemImage* menuSocial1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
-        CCMenuItemImage* menuSocial2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onFacebook:)];
+        CCMenuItemImage* menuSocial2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_fb.png" selectedImage:nil target:self selector:@selector(onFacebook:)];
         CCMenu *menuSocial = [CCMenu menuWithItems:menuSocial1, menuSocial2, nil];
         menuSocial.position = ccp(screenSize.width / 2, 60);
         //[menuSocial alignItemsVerticallyWithPadding: 20.0f];
-        [menuSocial alignItemsHorizontallyWithPadding: 20.0f];
+        [menuSocial alignItemsHorizontallyWithPadding: 10.0f];
         [self addChild:menuSocial z: 11];
         
         self.isTouchEnabled = YES;
@@ -102,7 +102,7 @@
         int highScore = [defaults integerForKey:@"NOW_SCORE"];
         
         // set initial text
-        NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのスイーツを持ち帰りました。#中島清掃局", highScore];
+        NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのゴミを収集しました。Save the our earth...#中島清掃局", highScore];
         [tweetViewController setInitialText:message];
         
         // setup completion handler
@@ -164,11 +164,12 @@
             int highScore = [defaults integerForKey:@"NOW_SCORE"];
             
             // set initial text
-            NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのスイーツを持ち帰りました。", highScore];
+            NSString* message = [NSString stringWithFormat:@"お世話になっております。中島清掃局です。%dKgのゴミを収集しました。Save the our earth...", highScore];
             
             
             [facebookViewController setInitialText:message];
             [facebookViewController addURL:[NSURL URLWithString:@"http://vacuum.nakajijapan.net"]];
+            [facebookViewController addImage:[UIImage imageNamed:@"game_safe008-hd.png"]];
             [facebookViewController setCompletionHandler:completionHandler];
             
             [[CCDirector sharedDirector] addChildViewController:viewController];

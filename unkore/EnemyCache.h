@@ -11,7 +11,7 @@
 
 #define UK_INTERVAL_ENEMY_GANERATE_NORMAL    1.2f
 #define UK_INTERVAL_ENEMY_GANERATE_DIFFICULT 0.5f
-#define UK_CHANGE_SCORE_TO_DIFFCULT 5000
+#define UK_CHANGE_SCORE_TO_DIFFCULT 500
 
 @interface EnemyCache : CCNode {
     CCSpriteBatchNode* batch;

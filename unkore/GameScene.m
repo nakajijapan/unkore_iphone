@@ -8,21 +8,9 @@
 
 #import "GameScene.h"
 
-// layer
-#import "HipLayer.h"
-#import "GameLayer.h"
-
-// enamy
-#import "EnemyCache.h"
-
-// scene
-#import "GameOverScene.h"
-
-
 @implementation GameScene
 
 static GameScene* instanceOfGameScene;
-
 static CGRect screenRect;
 
 
@@ -60,27 +48,15 @@ static CGRect screenRect;
         [defaults setValue:0 forKey:@"NOW_SCORE"];
         
         //----------------------------------------
+        // アートワークに保存してある情報を画面にロードする
+        _frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
+        [_frameCache addSpriteFramesWithFile:@"game-art.plist"];
+        
+        //----------------------------------------
         // 背景画像
 		GameLayer* gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:10 tag:LayerTagGameLayer];
 		
-        //----------------------------------------
-        // お尻画像
-		_hipLayer = [CCSprite spriteWithFile:@"game_hip001.png"];
-		_hipLayer.position = CGPointMake(0, screenSize.height + 250);
-		_hipLayer.anchorPoint = CGPointMake(0, 1);
-		[self addChild:_hipLayer z:20 tag:UILayerTagFrameSprite];        
-        
-        // お尻を左右に振らせる
-        CCMoveBy* hipMove1 = [CCMoveBy actionWithDuration:.1f  position: ccp(5,0)];
-        CCMoveBy* hipMove2 = [CCMoveBy actionWithDuration:.1f  position: ccp(-5,0)];
-        CCMoveBy* hipMove3 = [CCMoveBy actionWithDuration:.1f  position: ccp(-5,0)];
-        CCMoveBy* hipMove4 = [CCMoveBy actionWithDuration:.1f  position: ccp(5,0)];
-        CCDelayTime* hipDelay = [CCDelayTime actionWithDuration:5.0f];
-        CCSequence* hipSequence = [CCSequence actions:hipMove1, hipMove2, hipMove3, hipMove4, hipMove1, hipMove2, hipMove3, hipMove4, hipDelay, nil];
-        CCRepeatForever *hipRepeat = [CCRepeatForever actionWithAction: hipSequence];
-        [_hipLayer runAction:hipRepeat];
-        
         //----------------------------------------
         // 枠画像
         CCSprite* sideframe = [CCSprite spriteWithFile:@"game_waku.png"];
@@ -101,6 +77,7 @@ static CGRect screenRect;
         // rect
         screenRect = CGRectMake(0, 0, screenSize.width, screenSize.height);
         
+       
         //----------------------------------------
         // ヘルプ表示
         if ([defaults integerForKey:@"IS_FIRST_GAME"] != 1) {
@@ -153,26 +130,37 @@ static CGRect screenRect;
     carFrame.anchorPoint = CGPointMake(0, 0);
     [self addChild:carFrame z:20];
     
+    // 車の出現アニメーション
     id delay = [CCDelayTime actionWithDuration:4.0f];
     id action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,15)];
     id ease = [CCEaseIn actionWithAction:action rate:0.3];
-    //id ease = [CCEaseElasticIn actionWithAction:action period:0.3f];
     id actions = [CCSequence actions:delay, ease, nil];
     
     // call back method
-    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep1)];
-    //[carFrame runAction: actions];
-    //[carFrame runAction:[CCSequence actionOne:actions two:actionCallback]];
+    id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep2:)];
     [carFrame runAction:[CCSequence actions:actions, actionCallback, nil]];
+    
+    // 車を上下に振らせる
+    CCMoveBy* carMove1 = [CCMoveBy actionWithDuration:.3f  position: ccp(0, 4)];
+    CCMoveBy* carMove2 = [CCMoveBy actionWithDuration:.3f  position: ccp(0,-8)];
+    CCMoveBy* carMove3 = [CCMoveBy actionWithDuration:.3f  position: ccp(0, 8)];
+    CCMoveBy* carMove4 = [CCMoveBy actionWithDuration:.3f  position: ccp(0,-4)];
+    CCDelayTime* carDelay = [CCDelayTime actionWithDuration:4.0f];
+    CCSequence* carSequence = [CCSequence actions:carMove1, carMove2, carMove3, carMove4, carMove1, carMove2, carMove3, carMove4, carDelay, nil];
+    CCRepeatForever *carRepeat = [CCRepeatForever actionWithAction: carSequence];
+    [carFrame runAction:carRepeat];
+
 }
 
 -(void) onStartGameStep1
 {
+    /*
     // アニメーションの設定
     id action1 = [CCMoveBy actionWithDuration:2.0f  position: ccp(0, -250)];
     id action2 = [CCEaseElasticOut actionWithAction:action1 period:0.35f];
     id actionCallback  = [CCCallFunc actionWithTarget:self selector:@selector(onStartGameStep2:)];
     [_hipLayer runAction:[CCSequence actionOne:action2 two:actionCallback]];
+     */
 }
 
 -(void) onStartGameStep2:(id)sender
@@ -208,9 +196,7 @@ static CGRect screenRect;
     // music start
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"unkore_background.mp3"];
     
-    // アートワークに保存してある情報を画面にロードする
-    _frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
-    [_frameCache addSpriteFramesWithFile:@"game-art.plist"];
+    // Enemy生成
     EnemyCache* enemyCache = [EnemyCache node];
     [self addChild:enemyCache z:19 tag:GameSceneNodeTagEnemyCache];
 }

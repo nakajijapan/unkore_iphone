@@ -217,12 +217,13 @@ static EnemyCache* instanceOfEnemyCache;
         
         // アニメーション処理
         if (1 <= difficultModeCount && difficultModeCount <= 7) {
+            
             // start
             if (difficultModeCount == 1) {
                 CCParticleSystem* system = [CCParticleFireworks node];// げり
                 CGSize winSize = [[CCDirector sharedDirector] winSize];
-                system.position = CGPointMake(winSize.width / 2, (winSize.height * 3 / 4) + 10 );
-                system.texture = [[CCTextureCache sharedTextureCache] addImage: @"game_safe001.png"];
+                system.position = CGPointMake(winSize.width / 2, winSize.height);
+                system.texture = [[CCTextureCache sharedTextureCache] addImage: @"game_safe008.png"];
                 system.duration = 2; // for 2 seccond
                 // rotate
                 id rotate = [CCRotateTo actionWithDuration:.0f angle:180];

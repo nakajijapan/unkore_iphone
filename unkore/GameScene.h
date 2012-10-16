@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+// layer
+//#import "HipLayer.h"
+#import "GameLayer.h"
+
+// enamy
+#import "EnemyCache.h"
+
+// scene
+#import "GameOverScene.h"
+
+
 typedef enum {
     LayerTagGameLayer,
     LayerTagHipLayer
@@ -22,7 +33,7 @@ typedef enum
 } GameSceneNodeTags;
 
 @class GameLayer;
-@class HipLayer;
+//@class HipLayer;
 
 
 @interface GameScene : CCLayer {
@@ -37,7 +48,7 @@ typedef enum
     // 敵の管理
     CCSpriteFrameCache* _frameCache;
     
-    CCSprite* _hipLayer;
+    //CCSprite* _hipLayer;
     CCSprite* _firstHelp;
 }
 +(id) scene;

@@ -23,11 +23,13 @@
 		self.isTouchEnabled = YES;
         
         // お尻を左右に振らせる
-        CCMoveBy* move1 = [CCMoveBy actionWithDuration:.1f  position: ccp(5,0)];
-        CCMoveBy* move2 = [CCMoveBy actionWithDuration:.1f  position: ccp(-5,0)];
-        CCMoveBy* move3 = [CCMoveBy actionWithDuration:.1f  position: ccp(-5,0)];
-        CCMoveBy* move4 = [CCMoveBy actionWithDuration:.1f  position: ccp(5,0)];
+        CCMoveBy* move1 = [CCMoveBy actionWithDuration:.3f  position: ccp(5,0)];
+        CCMoveBy* move2 = [CCMoveBy actionWithDuration:.3f  position: ccp(-5,0)];
+        CCMoveBy* move3 = [CCMoveBy actionWithDuration:.3f  position: ccp(-5,0)];
+        CCMoveBy* move4 = [CCMoveBy actionWithDuration:.3f  position: ccp(5,0)];
         CCDelayTime* delay = [CCDelayTime actionWithDuration:5.0f];
+        
+        
         CCSequence* sequence = [CCSequence actions:move1, move2, move3, move4, move1, move2, move3, move4, delay, nil];
         CCRepeatForever *repeat = [CCRepeatForever actionWithAction: sequence];
         
@@ -42,4 +44,6 @@
     id action2 = [CCEaseElasticOut actionWithAction:action1 period:0.35f];
     [self runAction:action2];
 }
+
+
 @end
