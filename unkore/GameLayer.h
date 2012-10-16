@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface GameLayer : CCLayer {
-    
+    CCSpriteBatchNode* spriteBatch;
+    CCArray* speedFactors;
 }
 
 @end
