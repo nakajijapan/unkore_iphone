@@ -98,6 +98,9 @@
 			[NSException exceptionWithName:@"EnemyEntity Exception" reason:@"unhandled enemy type" userInfo:nil];
 	}
     
+    // 位置の初期化
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    self.position = CGPointMake(screenSize.width, screenSize.height);
     
     //self = [CCSprite spriteWithFile:enemyFrameName];
     self = [super initWithSpriteFrameName:enemyFrameName];
@@ -161,11 +164,11 @@
 	CGRect screenRect = [GameScene screenRect];
 	//CGSize spriteSize = [self contentSize];
     
-    //CCLOG(@"spawn enemy %d ", screenRect.size);
+    NSLog(@"spawn enemy %@ ", NSStringFromCGRect(screenRect));
     
     // 上から出現させる
     float xPos = screenRect.size.width / 2;
-    float yPos = screenRect.size.height;
+    float yPos = screenRect.size.height * 1.3;
     
 	self.position = CGPointMake(xPos, yPos);
 	
@@ -213,7 +216,10 @@
         
         // ラベルを表示させる
         int tag = rand() % 1000 + 1000;
-        CCLabelTTF* label = [CCLabelTTF labelWithString:@"バキューム！！" fontName:@"Marker Felt" fontSize: rand() % 60 + 10];
+
+        CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"get.png"];
+        CCSprite* label = [CCSprite spriteWithSpriteFrame:frame];
+
         label.position = ccp(rand() % 200 + 10, rand() % 400 + 30);
         label.anchorPoint = ccp(0.5, 0.5);
         [gameScene addChild:label z:50 tag:tag];
