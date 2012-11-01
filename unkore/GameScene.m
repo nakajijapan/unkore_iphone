@@ -314,6 +314,18 @@ static CGRect screenRect;
             }
         }];
     }
+    else if (_nowScore >= 30000) {
+        GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:@"4"] autorelease];
+        achievement.percentComplete = 100;
+        [achievement reportAchievementWithCompletionHandler:^(NSError *error){
+            if (error != nil) {
+                CCLOG(@"achievementの送信　失敗！");
+            }
+            else {
+                CCLOG(@"achievementの送信　成功！");
+            }
+        }];
+    }
 }
 -(int)nowScore
 {
