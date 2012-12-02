@@ -45,13 +45,15 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>hajishirazu.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>hajishirazu.nakajima</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>中島清掃局</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>

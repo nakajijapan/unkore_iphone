@@ -159,6 +159,7 @@
 		E11F080D15B47D9800DD70DB /* unkore_otohime001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E11F080C15B47D9800DD70DB /* unkore_otohime001.mp3 */; };
 		E13BB4E815DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */; };
 		E13BB4EC15DFD9BD008CFE43 /* GameHelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E13BB4EB15DFD9BC008CFE43 /* GameHelpScene.m */; };
+		E142FB19165D630F006DBD2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E142FB18165D630F006DBD2D /* Default-568h@2x.png */; };
 		E16B98EC15CF1D470047A738 /* RandomMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B98EB15CF1D460047A738 /* RandomMoveComponent.m */; };
 		E1803E5216282CE100CEC987 /* gameover_btn_fb-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E1803E5016282CE100CEC987 /* gameover_btn_fb-hd.png */; };
 		E1803E5316282CE100CEC987 /* gameover_btn_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = E1803E5116282CE100CEC987 /* gameover_btn_fb.png */; };
@@ -269,7 +270,7 @@
 		E1AF548715B5DA2400AE8902 /* game-art.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF548315B5DA2400AE8902 /* game-art.png */; };
 		E1C784D315B5B6CA00165EAD /* HipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C784D215B5B6CA00165EAD /* HipLayer.m */; };
 		E1C784D715B5B72D00165EAD /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C784D615B5B72D00165EAD /* GameLayer.m */; };
-		E1CA7168161DB941007239C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CA7167161DB941007239C7 /* Social.framework */; };
+		E1CA7168161DB941007239C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CA7167161DB941007239C7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E1E1C23D15DBC42C004039A6 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E1C23C15DBC42C004039A6 /* fire.png */; };
 		E1F294BC15BBA4D40096C1ED /* kotori_btn_start-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F294BB15BBA4D40096C1ED /* kotori_btn_start-hd.png */; };
 /* End PBXBuildFile section */
@@ -288,7 +289,7 @@
 		E11796B7162DA9850052CE3F /* unkore_vacume005.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_vacume005.mp3; sourceTree = "<group>"; };
 		E11841B815E67DB8007FE129 /* otohime_btn_back-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otohime_btn_back-hd.png"; sourceTree = "<group>"; };
 		E11841B915E67DB8007FE129 /* otohime_btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otohime_btn_back.png; sourceTree = "<group>"; };
-		E11F05D515B3FFB500DD70DB /* unkore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unkore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11F05D515B3FFB500DD70DB /* nakajima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakajima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11F05D915B3FFB500DD70DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E11F05DB15B3FFB600DD70DB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E11F05DD15B3FFB600DD70DB /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -572,8 +573,10 @@
 		E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_gememode_difficult001.mp3; sourceTree = "<group>"; };
 		E13BB4EA15DFD9BB008CFE43 /* GameHelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHelpScene.h; sourceTree = "<group>"; };
 		E13BB4EB15DFD9BC008CFE43 /* GameHelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHelpScene.m; sourceTree = "<group>"; };
+		E142FB18165D630F006DBD2D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E16B98EA15CF1D460047A738 /* RandomMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomMoveComponent.h; sourceTree = "<group>"; };
 		E16B98EB15CF1D460047A738 /* RandomMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomMoveComponent.m; sourceTree = "<group>"; };
+		E17C5C5C165D8B1B00E67160 /* nakajima.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = nakajima.entitlements; sourceTree = "<group>"; };
 		E1803E5016282CE100CEC987 /* gameover_btn_fb-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameover_btn_fb-hd.png"; sourceTree = "<group>"; };
 		E1803E5116282CE100CEC987 /* gameover_btn_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover_btn_fb.png; sourceTree = "<group>"; };
 		E1803E5516282E8500CEC987 /* game_safe008-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_safe008-hd.png"; sourceTree = "<group>"; };
@@ -737,6 +740,8 @@
 		E11F05CA15B3FFB500DD70DB = {
 			isa = PBXGroup;
 			children = (
+				E17C5C5C165D8B1B00E67160 /* nakajima.entitlements */,
+				E142FB18165D630F006DBD2D /* Default-568h@2x.png */,
 				E193495015BADDFF00B1065B /* Default@2x.png */,
 				E193494E15BADDFA00B1065B /* Default.png */,
 				E193494C15BADCAA00B1065B /* Icon-114.png */,
@@ -750,7 +755,7 @@
 		E11F05D615B3FFB500DD70DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E11F05D515B3FFB500DD70DB /* unkore.app */,
+				E11F05D515B3FFB500DD70DB /* nakajima.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1404,9 +1409,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E11F05D415B3FFB500DD70DB /* unkore */ = {
+		E11F05D415B3FFB500DD70DB /* nakajima */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E11F076E15B3FFBA00DD70DB /* Build configuration list for PBXNativeTarget "unkore" */;
+			buildConfigurationList = E11F076E15B3FFBA00DD70DB /* Build configuration list for PBXNativeTarget "nakajima" */;
 			buildPhases = (
 				E11F05D115B3FFB500DD70DB /* Sources */,
 				E11F05D215B3FFB500DD70DB /* Frameworks */,
@@ -1416,9 +1421,9 @@
 			);
 			dependencies = (
 			);
-			name = unkore;
+			name = nakajima;
 			productName = unkore;
-			productReference = E11F05D515B3FFB500DD70DB /* unkore.app */;
+			productReference = E11F05D515B3FFB500DD70DB /* nakajima.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1429,7 +1434,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = E11F05CF15B3FFB500DD70DB /* Build configuration list for PBXProject "unkore" */;
+			buildConfigurationList = E11F05CF15B3FFB500DD70DB /* Build configuration list for PBXProject "nakajima" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1441,7 +1446,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E11F05D415B3FFB500DD70DB /* unkore */,
+				E11F05D415B3FFB500DD70DB /* nakajima */,
 			);
 		};
 /* End PBXProject section */
@@ -1582,6 +1587,7 @@
 				E11796B8162DA9850052CE3F /* unkore_vacume003.mp3 in Resources */,
 				E11796B9162DA9850052CE3F /* unkore_vacume004.mp3 in Resources */,
 				E11796BA162DA9850052CE3F /* unkore_vacume005.mp3 in Resources */,
+				E142FB19165D630F006DBD2D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1725,7 +1731,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: paperboy&co., Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daichi Nakajima";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daichi Nakajima";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1739,7 +1746,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				PRODUCT_NAME = "中島清掃局";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2AFC211-74CB-42B4-B4C6-B05FC36F088C";
+				PROVISIONING_PROFILE = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1763,7 +1771,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nakajima;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1796,7 +1804,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daichi Nakajima";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daichi Nakajima";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1808,7 +1817,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				PRODUCT_NAME = "中島清掃局";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1829,7 +1839,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nakajima;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1843,6 +1853,8 @@
 					armv6,
 					armv7,
 				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daichi Nakajima";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daichi Nakajima";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = unkore/Prefix.pch;
@@ -1852,7 +1864,9 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nakajima;
+				PROVISIONING_PROFILE = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A9D3DC5-C741-47B1-B67E-B809D0BEA86B";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1862,7 +1876,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E11F05CF15B3FFB500DD70DB /* Build configuration list for PBXProject "unkore" */ = {
+		E11F05CF15B3FFB500DD70DB /* Build configuration list for PBXProject "nakajima" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11F076C15B3FFBA00DD70DB /* Debug */,
@@ -1872,7 +1886,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E11F076E15B3FFBA00DD70DB /* Build configuration list for PBXNativeTarget "unkore" */ = {
+		E11F076E15B3FFBA00DD70DB /* Build configuration list for PBXNativeTarget "nakajima" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11F076F15B3FFBA00DD70DB /* Debug */,

@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11F05D415B3FFB500DD70DB"
-               BuildableName = "unkore.app"
-               BlueprintName = "unkore"
-               ReferencedContainer = "container:unkore.xcodeproj">
+               BuildableName = "nakajima.app"
+               BlueprintName = "nakajima"
+               ReferencedContainer = "container:nakajima.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11F05D415B3FFB500DD70DB"
-            BuildableName = "unkore.app"
-            BlueprintName = "unkore"
-            ReferencedContainer = "container:unkore.xcodeproj">
+            BuildableName = "nakajima.app"
+            BlueprintName = "nakajima"
+            ReferencedContainer = "container:nakajima.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11F05D415B3FFB500DD70DB"
-            BuildableName = "unkore.app"
-            BlueprintName = "unkore"
-            ReferencedContainer = "container:unkore.xcodeproj">
+            BuildableName = "nakajima.app"
+            BlueprintName = "nakajima"
+            ReferencedContainer = "container:nakajima.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -64,15 +64,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11F05D415B3FFB500DD70DB"
-            BuildableName = "unkore.app"
-            BlueprintName = "unkore"
-            ReferencedContainer = "container:unkore.xcodeproj">
+            BuildableName = "nakajima.app"
+            BlueprintName = "nakajima"
+            ReferencedContainer = "container:nakajima.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -80,7 +80,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
+      customArchiveName = "nakajima"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
