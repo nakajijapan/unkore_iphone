@@ -165,6 +165,8 @@
 		E1803E5316282CE100CEC987 /* gameover_btn_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = E1803E5116282CE100CEC987 /* gameover_btn_fb.png */; };
 		E1803E5716282E8600CEC987 /* game_safe008-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E1803E5516282E8500CEC987 /* game_safe008-hd.png */; };
 		E1803E5816282E8600CEC987 /* game_safe008.png in Resources */ = {isa = PBXBuildFile; fileRef = E1803E5616282E8600CEC987 /* game_safe008.png */; };
+		E18E052A166FBA9D00B936D8 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18E0529166FBA9D00B936D8 /* iAd.framework */; };
+		E18E052E166FBD9200B936D8 /* iAdLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E052D166FBD9200B936D8 /* iAdLayer.m */; };
 		E193491415BA79E200B1065B /* unkore_otohime002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E193491215BA79E200B1065B /* unkore_otohime002.mp3 */; };
 		E193491715BA7A0100B1065B /* unkore_otohime003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E193491615BA7A0100B1065B /* unkore_otohime003.mp3 */; };
 		E193491C15BA971C00B1065B /* unkore_vacume001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E193491A15BA971C00B1065B /* unkore_vacume001.mp3 */; };
@@ -581,6 +583,9 @@
 		E1803E5116282CE100CEC987 /* gameover_btn_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover_btn_fb.png; sourceTree = "<group>"; };
 		E1803E5516282E8500CEC987 /* game_safe008-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_safe008-hd.png"; sourceTree = "<group>"; };
 		E1803E5616282E8600CEC987 /* game_safe008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_safe008.png; sourceTree = "<group>"; };
+		E18E0529166FBA9D00B936D8 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		E18E052C166FBD9200B936D8 /* iAdLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdLayer.h; sourceTree = "<group>"; };
+		E18E052D166FBD9200B936D8 /* iAdLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdLayer.m; sourceTree = "<group>"; };
 		E193491215BA79E200B1065B /* unkore_otohime002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_otohime002.mp3; sourceTree = "<group>"; };
 		E193491615BA7A0100B1065B /* unkore_otohime003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_otohime003.mp3; sourceTree = "<group>"; };
 		E193491A15BA971C00B1065B /* unkore_vacume001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_vacume001.mp3; sourceTree = "<group>"; };
@@ -707,6 +712,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E18E052A166FBA9D00B936D8 /* iAd.framework in Frameworks */,
 				E1CA7168161DB941007239C7 /* Social.framework in Frameworks */,
 				E11F077215B4003F00DD70DB /* Twitter.framework in Frameworks */,
 				E11F05DA15B3FFB600DD70DB /* QuartzCore.framework in Frameworks */,
@@ -740,6 +746,7 @@
 		E11F05CA15B3FFB500DD70DB = {
 			isa = PBXGroup;
 			children = (
+				E18E0529166FBA9D00B936D8 /* iAd.framework */,
 				E17C5C5C165D8B1B00E67160 /* nakajima.entitlements */,
 				E142FB18165D630F006DBD2D /* Default-568h@2x.png */,
 				E193495015BADDFF00B1065B /* Default@2x.png */,
@@ -797,6 +804,8 @@
 				E11F05EC15B3FFB600DD70DB /* Resources */,
 				E11F060615B3FFB600DD70DB /* libs */,
 				E11F075F15B3FFBA00DD70DB /* Supporting Files */,
+				E18E052C166FBD9200B936D8 /* iAdLayer.h */,
+				E18E052D166FBD9200B936D8 /* iAdLayer.m */,
 			);
 			path = unkore;
 			sourceTree = "<group>";
@@ -1721,6 +1730,7 @@
 				E1934A3E15BB4DD200B1065B /* OtohimePlayerScene3.m in Sources */,
 				E16B98EC15CF1D470047A738 /* RandomMoveComponent.m in Sources */,
 				E13BB4EC15DFD9BD008CFE43 /* GameHelpScene.m in Sources */,
+				E18E052E166FBD9200B936D8 /* iAdLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
