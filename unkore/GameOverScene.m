@@ -51,10 +51,17 @@
         // メニュー
         CCMenuItemImage* menuMain1 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_retry.png"   selectedImage:nil target:self selector:@selector(onRestart:)];
         CCMenu *menu = [CCMenu menuWithItems:menuMain1, nil];
-        // CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_twitter.png" selectedImage:nil target:self selector:@selector(onTwitter:)];
-        //CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
-        menu.position = ccp(screenSize.width / 2, 130);
+        
         [menu alignItemsVerticallyWithPadding: 20.0f];
+
+        // for iPhone5
+        if (screenSize.height == 568) {
+            menu.position = ccp(screenSize.width / 2, 213);
+        }
+        else {
+            menu.position = ccp(screenSize.width / 2, 130);
+        }
+        
         [self addChild:menu z: 11];
         
         
@@ -63,8 +70,16 @@
         CCMenuItemImage* menuSocial2 = [CCMenuItemImage itemWithNormalImage:@"gameover_btn_fb.png" selectedImage:nil target:self selector:@selector(onFacebook:)];
         CCMenu *menuSocial = [CCMenu menuWithItems:menuSocial1, menuSocial2, nil];
         menuSocial.position = ccp(screenSize.width / 2, 60);
-        //[menuSocial alignItemsVerticallyWithPadding: 20.0f];
         [menuSocial alignItemsHorizontallyWithPadding: 10.0f];
+
+        // for iPhone5
+        if (screenSize.height == 568) {
+            menuSocial.position = ccp(screenSize.width / 2, 143);
+        }
+        else {
+            menuSocial.position = ccp(screenSize.width / 2, 60);
+        }
+        
         [self addChild:menuSocial z: 11];
         
         self.isTouchEnabled = YES;
