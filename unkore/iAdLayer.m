@@ -46,7 +46,8 @@
     //#warning the size of the ads needs to be used according iphone or ipad windowのサイズで変更される
     [self.bannerView bringSubviewToFront:bannerView];
 
-    bannerView.frame = CGRectMake(0.0, windowsize.height - 50, bannerView.frame.size.width, bannerView.frame.size.height);
+    //bannerView.frame = CGRectMake(0.0, windowsize.height - 50, bannerView.frame.size.width, bannerView.frame.size.height);
+    bannerView.frame = CGRectMake(0.0, windowsize.height - 88, bannerView.frame.size.width, 88);
     //NSLog(@"bannerがスクリーンに表示される");
 }
 
