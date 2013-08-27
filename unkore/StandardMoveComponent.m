@@ -40,7 +40,15 @@
         if (isMoving == NO) {
             CGSize screenSize = [[CCDirector sharedDirector] winSize];
             isMoving = YES;
-            id moveTo       = [CCMoveTo actionWithDuration:.5f position:ccp(screenSize.width / 2, screenSize.height * 0.4 )];
+            
+            // for iPhone5
+            id moveTo;
+            if (screenSize.height == 568) {
+                moveTo       = [CCMoveTo actionWithDuration:.5f position:ccp(screenSize.width / 2, screenSize.height * 0.45)];
+            }
+            else {
+                moveTo       = [CCMoveTo actionWithDuration:.5f position:ccp(screenSize.width / 2, screenSize.height * 0.4)];
+            }
             
             // 激ムズモード
             id delayOneSec;
