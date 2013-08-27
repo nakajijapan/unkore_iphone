@@ -50,7 +50,7 @@
         CCMenuItemImage* menu2 = [CCMenuItemImage itemWithNormalImage:@"btn_oto.png" selectedImage:@"btn_oto_touch.png" target:self selector:@selector(onOtohime:)];
         
         CCMenu*         menu = [CCMenu menuWithItems:menu1, menu2, nil];
-        menu.position = ccp(screenSize.width / 2, 80);
+        menu.position = ccp(screenSize.width / 2, screenSize.height * 0.17 );
         [menu alignItemsHorizontallyWithPadding: 25];
         [self addChild:menu z: 2];
         

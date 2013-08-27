@@ -157,6 +157,7 @@
 		E11F080815B44E8A00DD70DB /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E11F080715B44E8900DD70DB /* GameOverScene.m */; };
 		E11F080B15B4531500DD70DB /* HighScoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E11F080A15B4531500DD70DB /* HighScoreScene.m */; };
 		E11F080D15B47D9800DD70DB /* unkore_otohime001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E11F080C15B47D9800DD70DB /* unkore_otohime001.mp3 */; };
+		E12A66E5169C9DB1001BFB08 /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E12A66E4169C9DB1001BFB08 /* DeviceUtil.m */; };
 		E13BB4E815DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */; };
 		E13BB4EC15DFD9BD008CFE43 /* GameHelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E13BB4EB15DFD9BC008CFE43 /* GameHelpScene.m */; };
 		E142FB19165D630F006DBD2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E142FB18165D630F006DBD2D /* Default-568h@2x.png */; };
@@ -572,6 +573,8 @@
 		E11F080915B4531500DD70DB /* HighScoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreScene.h; sourceTree = "<group>"; };
 		E11F080A15B4531500DD70DB /* HighScoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreScene.m; sourceTree = "<group>"; };
 		E11F080C15B47D9800DD70DB /* unkore_otohime001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_otohime001.mp3; sourceTree = "<group>"; };
+		E12A66E3169C9DB1001BFB08 /* DeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtil.h; sourceTree = "<group>"; };
+		E12A66E4169C9DB1001BFB08 /* DeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtil.m; sourceTree = "<group>"; };
 		E13BB4E715DFA3A6008CFE43 /* unkore_gememode_difficult001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unkore_gememode_difficult001.mp3; sourceTree = "<group>"; };
 		E13BB4EA15DFD9BB008CFE43 /* GameHelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHelpScene.h; sourceTree = "<group>"; };
 		E13BB4EB15DFD9BC008CFE43 /* GameHelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHelpScene.m; sourceTree = "<group>"; };
@@ -806,6 +809,8 @@
 				E11F075F15B3FFBA00DD70DB /* Supporting Files */,
 				E18E052C166FBD9200B936D8 /* iAdLayer.h */,
 				E18E052D166FBD9200B936D8 /* iAdLayer.m */,
+				E12A66E3169C9DB1001BFB08 /* DeviceUtil.h */,
+				E12A66E4169C9DB1001BFB08 /* DeviceUtil.m */,
 			);
 			path = unkore;
 			sourceTree = "<group>";
@@ -1731,6 +1736,7 @@
 				E16B98EC15CF1D470047A738 /* RandomMoveComponent.m in Sources */,
 				E13BB4EC15DFD9BD008CFE43 /* GameHelpScene.m in Sources */,
 				E18E052E166FBD9200B936D8 /* iAdLayer.m in Sources */,
+				E12A66E5169C9DB1001BFB08 /* DeviceUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "DeviceUtil.h"
 
 @implementation AppController
 
@@ -86,11 +87,12 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-    
+
+
     //----------------------------
     // ハードウェア情報を取得する
     //----------------------------
-    NSString* hardware_version = [self platform];
+    NSString* hardware_version = [DeviceUtil platform];
     NSLog(@"VERSION [%@]", hardware_version);
 
     //
@@ -102,6 +104,7 @@
         [navController_.view addSubview:[[iAdLayer sharedInstance] bannerView]];
     }
 	
+  
 	return YES;
 }
 
@@ -166,27 +169,5 @@
 }
 
 
-- (NSString *) platform
-{
-    size_t size;
-    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-    char *machine = malloc(size);
-    sysctlbyname("hw.machine", machine, &size, NULL, 0);
-    /*
-       　　Possible values:
-       　　"i386" = iPhone Simulator // add
-       　　"iPhone1,1" = iPhone 1G
-       　　"iPhone1,2" = iPhone 3G
-       　　"iPhone2,1" = iPhone 3GS
-       　　"iPhone3,1" = iPhone 4 // add
-       　　"iPod1,1" = iPod touch 1G
-       　　"iPod2,1" = iPod touch 2G
-       　　"iPod3,1" = iPod touch 3G // add
-       　　"iPod4,1" = iPod touch 4G // add
-    */
-    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-    free(machine);
-    return platform;
-}
 @end
 
