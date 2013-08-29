@@ -45,7 +45,13 @@
     CCMenuItemImage* menuMain1 = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_play.png" selectedImage:nil target:self selector:@selector(onNewGame:)];
     CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"game_top_btn_hiscore.png" selectedImage:nil target:self selector:@selector(onHighScore:)];
     CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, nil];
-    menu.position = ccp(screenSize.width / 2, 90);
+    if (screenSize.height == 568) {
+        menu.position = ccp(screenSize.width / 2, 180);
+    }
+    else {
+        menu.position = ccp(screenSize.width / 2, 90);
+        
+    }
     [menu alignItemsVerticallyWithPadding:10.0f];
     [self addChild:menu z: 2];
     

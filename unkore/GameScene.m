@@ -68,7 +68,7 @@ static CGRect screenRect;
         // スコアラベル
         _scoreLabel = [CCLabelTTF labelWithString:@"0 Kg" fontName:@"Marker Felt" fontSize:48];
         _scoreLabel.position = CGPointMake(screenSize.width - 30, screenSize.height - 30);
-        _scoreLabel.anchorPoint = CGPointMake(1, 1); // 左下上に設定
+        _scoreLabel.anchorPoint = CGPointMake(1, 1); // 右上に設定
         [self addChild:_scoreLabel z:35];
         
         // taouch enable
@@ -126,13 +126,31 @@ static CGRect screenRect;
     
     // 車
     CCSprite* carFrame = [CCSprite spriteWithFile:@"game_car.png"];
-    carFrame.position = CGPointMake(screenSize.width, 15);
+    
+
+    // for iPhone5
+    if (screenSize.height == 568) {
+        carFrame.position = CGPointMake(screenSize.width, 98);
+    }
+    else {
+        carFrame.position = CGPointMake(screenSize.width, 15);
+    }
     carFrame.anchorPoint = CGPointMake(0, 0);
+    
     [self addChild:carFrame z:20];
     
     // 車の出現アニメーション
     id delay = [CCDelayTime actionWithDuration:4.0f];
-    id action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,15)];
+
+    // for iPhone5
+    id action;
+    if (screenSize.height == 568) {
+        action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,98)];
+    }
+    else {
+        action = [CCMoveTo actionWithDuration:0.5 position:ccp(25,15)];
+    }
+    
     id ease = [CCEaseIn actionWithAction:action rate:0.3];
     id actions = [CCSequence actions:delay, ease, nil];
     
@@ -169,7 +187,7 @@ static CGRect screenRect;
     
     // ラベルの配置設定
     CCSprite* uiframe = [CCSprite spriteWithFile:@"game_ikuyo.png"];
-    uiframe.position = CGPointMake(screenSize.width / 2, screenSize.height / 2);
+    uiframe.position = CGPointMake(screenSize.width / 2, screenSize.height - 240);
     uiframe.anchorPoint = CGPointMake(0.5, 0.5);
     uiframe.opacity = 1.0;
     [self addChild:uiframe z:10 tag:GameSceneNodeTagLabelStart];

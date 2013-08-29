@@ -36,21 +36,26 @@
 	if( (self=[super init])) {
 		// ask director the the window size
 		CGSize screenSize = [[CCDirector sharedDirector] winSize];
-
+        
         // 背景画像
         CCSprite* uiframe = [CCSprite spriteWithFile:@"background.png"];
-		uiframe.position = CGPointMake(0, screenSize.height);
-		uiframe.anchorPoint = CGPointMake(0, 1);
+		uiframe.position    = ccp(0, screenSize.height);
+		uiframe.anchorPoint = ccp(0, 1);
 		[self addChild:uiframe z:0];
         
         
-       
         // メニュー(左右)
         CCMenuItemImage* menu1 = [CCMenuItemImage itemWithNormalImage:@"btn_game.png" selectedImage:@"btn_game_touch.png" target:self selector:@selector(onGame:)];
         CCMenuItemImage* menu2 = [CCMenuItemImage itemWithNormalImage:@"btn_oto.png" selectedImage:@"btn_oto_touch.png" target:self selector:@selector(onOtohime:)];
         
         CCMenu*         menu = [CCMenu menuWithItems:menu1, menu2, nil];
-        menu.position = ccp(screenSize.width / 2, 80);
+        menu.anchorPoint = CGPointMake(0.0, 1.0);
+        if (screenSize.height == 568) {
+            menu.position    = ccp(screenSize.width / 2, screenSize.height * 0.30 );
+        }
+        else {
+            menu.position    = ccp(screenSize.width / 2, screenSize.height * 0.17 );
+        }
         [menu alignItemsHorizontallyWithPadding: 25];
         [self addChild:menu z: 2];
         
@@ -60,7 +65,15 @@
         [cache addSpriteFramesWithFile:@"hae.plist"];
         
         CCSprite* sprite2 = [CCSprite spriteWithSpriteFrameName:@"hae01.png"];
-		sprite2.position = ccp(screenSize.width * 0.87, screenSize.height * 0.68 );
+        sprite2.anchorPoint = ccp(0, 1);
+        sprite2.ignoreAnchorPointForPosition = NO;
+        if (screenSize.height == 568) {
+            sprite2.position = ccp(screenSize.width * 0.80, screenSize.height * 0.74 );
+        }
+        else {
+            sprite2.position = ccp(screenSize.width * 0.87, screenSize.height * 0.68 );
+        }
+
 		[self addChild:sprite2];
         
         
