@@ -34,8 +34,17 @@
         CCMenuItemImage* menuMain2 = [CCMenuItemImage itemWithNormalImage:@"otohime_top_btn002.png" selectedImage:nil target:self selector:@selector(onPlayer2:)];
         CCMenuItemImage* menuMain3 = [CCMenuItemImage itemWithNormalImage:@"otohime_top_btn003.png" selectedImage:nil target:self selector:@selector(onPlayer3:)];
         CCMenu *menu = [CCMenu menuWithItems:menuMain1, menuMain2, menuMain3, nil];
-        menu.position = ccp(screenSize.width / 2  , screenSize.height * 0.3 + 20);
+        
         [menu alignItemsVerticallyWithPadding: 10.0f];
+
+        // for iPhone5
+        if (screenSize.height == 568) {
+            menu.position = ccp(screenSize.width / 2  , screenSize.height * 0.3 + 70);
+        }
+        else {
+            menu.position = ccp(screenSize.width / 2  , screenSize.height * 0.3 + 20);
+        }
+
         [self addChild:menu z: 2];
         
         

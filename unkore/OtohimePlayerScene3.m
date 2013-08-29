@@ -41,7 +41,15 @@
                                                                selector:@selector(onSoundCallback:) 
                                                                   items:menuSoundStart, _menuSoundStop, nil];
         CCMenu* menuMain = [CCMenu menuWithItems:menuToggle, nil];
-        menuMain.position = ccp(screenSize.width / 2, screenSize.height / 2);
+
+        // for iPhone5
+        if (screenSize.height == 568) {
+            menuMain.position = ccp(screenSize.width / 2, screenSize.height * 0.6);
+        }
+        else {
+            menuMain.position = ccp(screenSize.width / 2, screenSize.height * 0.5);
+        }
+
         [self addChild:menuMain z: 2];
         
     }

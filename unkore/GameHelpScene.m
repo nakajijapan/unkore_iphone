@@ -101,9 +101,18 @@
         // 矢印
         menuArrow = [CCMenuItemImage itemWithNormalImage:@"play_btn_next.png" selectedImage:nil target:self selector:@selector(onMoveRight:)];
         CCMenu *menu = [CCMenu menuWithItems:menuArrow, nil];
-        menu.position    = ccp(screenSize.width / 2, 50);
+        
         menu.anchorPoint = ccp(0.5, 0.5);
         [menu alignItemsVerticallyWithPadding:0.0f];
+
+        // for iPhone5
+        if (screenSize.height == 568) {
+            menu.position    = ccp(screenSize.width / 2, 133);
+        }
+        else {
+            menu.position    = ccp(screenSize.width / 2, 50);
+        }
+        
         [self addChild:menu z:10];
         
         // page

@@ -81,12 +81,24 @@
 	navController_.navigationBarHidden = YES;
 	
 	// set the Navigation Controller as the root view controller
-//	[window_ addSubview:navController_.view];	// Generates flicker.
 	[window_ setRootViewController:navController_];
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
+
+
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+
+    //
+    // iAd
+    //    画面がおおきくなったため間に広告をいれるようにした
+    //
+    if (screenSize.height == 568) {
+        [[iAdLayer sharedInstance] createAdView];
+        [navController_.view addSubview:[[iAdLayer sharedInstance] bannerView]];
+    }
 	
+  
 	return YES;
 }
 
@@ -149,5 +161,7 @@
 
 	[super dealloc];
 }
+
+
 @end
 

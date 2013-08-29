@@ -22,7 +22,8 @@
         // 背景
         //-----------------------------------------------
 		CCSprite* background = [CCSprite spriteWithFile:@"game_background.png"];
-		background.position = CGPointMake(screenSize.width / 2, screenSize.height / 2);
+		background.position = CGPointMake(screenSize.width, screenSize.height);
+        background.anchorPoint = ccp(1, 1);
 		[self addChild:background z:0];
         
         

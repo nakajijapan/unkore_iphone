@@ -70,16 +70,16 @@
 	CCScene *newScene = [SceneManager wrap:layer];
 	id trans;
 	if ([director runningScene]) {
-        if (transName == @"Fade") {
+        if ([transName isEqual: @"Fade"]) {
             trans = [CCTransitionFade transitionWithDuration:TRANSITION_DURATION scene:newScene];
         }
-        else if (transName == @"JumpZoom") {
+        else if ([transName isEqual: @"JumpZoom"]) {
             trans = [CCTransitionJumpZoom transitionWithDuration:TRANSITION_DURATION scene:newScene];
         }
-        else if (transName == @"RotoZoom") {
+        else if ([transName isEqual: @"RotoZoom"]) {
             trans = [CCTransitionRotoZoom transitionWithDuration:TRANSITION_DURATION scene:newScene];
         }
-        else if (transName == @"SlideL") {
+        else if ([transName isEqual: @"SlideL"]) {
             trans = [CCTransitionSlideInL transitionWithDuration:TRANSITION_DURATION scene:newScene];
         }
         else {

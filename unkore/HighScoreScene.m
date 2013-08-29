@@ -41,9 +41,16 @@
         NSString* string = [NSString stringWithFormat:@"%d Kg", highScore];
         CCLabelTTF* label = [CCLabelTTF labelWithString:string fontName:@"Marker Felt" fontSize:32];
         label.color = ccc3(66, 33, 00);
-        label.position = ccp(screenSize.width / 2, screenSize.height * 0.5);
         label.anchorPoint = ccp(0.5f, 0.5f);
-        [self addChild:label z:10];        
+        // for iPhone5
+        if (screenSize.height == 568) {
+            label.position = ccp(screenSize.width / 2, screenSize.height * 0.63);
+        }
+        else {
+            label.position = ccp(screenSize.width / 2, screenSize.height * 0.5);
+        }
+
+        [self addChild:label z:10];
     }
     
     return self;
