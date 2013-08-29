@@ -10,7 +10,6 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-#import "DeviceUtil.h"
 
 @implementation AppController
 
@@ -82,24 +81,19 @@
 	navController_.navigationBarHidden = YES;
 	
 	// set the Navigation Controller as the root view controller
-//	[window_ addSubview:navController_.view];	// Generates flicker.
 	[window_ setRootViewController:navController_];
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
 
 
-    //----------------------------
-    // ハードウェア情報を取得する
-    //----------------------------
-    NSString* hardware_version = [DeviceUtil platform];
-    NSLog(@"VERSION [%@]", hardware_version);
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
 
     //
     // iAd
     //    画面がおおきくなったため間に広告をいれるようにした
     //
-    if ([hardware_version isEqualToString:@"iPhone5,1"] || [hardware_version isEqualToString:@"x86_64"]) {
+    if (screenSize.height == 568) {
         [[iAdLayer sharedInstance] createAdView];
         [navController_.view addSubview:[[iAdLayer sharedInstance] bannerView]];
     }

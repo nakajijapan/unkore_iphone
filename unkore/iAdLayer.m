@@ -43,18 +43,16 @@
 // 完全にロードされたらまずはじめに画面に呼び出される
 -(void) moveBannerOffScreen{
     CGSize windowsize = [[CCDirector sharedDirector] winSize];
-    //#warning the size of the ads needs to be used according iphone or ipad windowのサイズで変更される
     [self.bannerView bringSubviewToFront:bannerView];
-
-    //bannerView.frame = CGRectMake(0.0, windowsize.height - 50, bannerView.frame.size.width, bannerView.frame.size.height);
-    bannerView.frame = CGRectMake(0.0, windowsize.height - 88, bannerView.frame.size.width, 88);
+    bannerView.frame = CGRectMake(0.0, windowsize.height - 88, bannerView.frame.size.width, bannerView.frame.size.height);
+    bannerView.backgroundColor = [UIColor whiteColor];
     //NSLog(@"bannerがスクリーンに表示される");
 }
 
 // スクリーンに表示される
 -(void) moveBannerOnScreen{
-    [UIView beginAnimations:@"BannerViewIntro" context:NULL];
     //NSLog(@"bannerがスクリーンに表示されます２");
+    [UIView beginAnimations:@"BannerViewIntro" context:NULL];
 }
 
 // ユーザーがバナーをおしたときに起動される
