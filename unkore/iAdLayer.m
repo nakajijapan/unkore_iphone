@@ -45,7 +45,6 @@
     CGSize windowsize = [[CCDirector sharedDirector] winSize];
     [self.bannerView bringSubviewToFront:bannerView];
     bannerView.frame = CGRectMake(0.0, windowsize.height - 88, bannerView.frame.size.width, bannerView.frame.size.height);
-    bannerView.backgroundColor = [UIColor whiteColor];
     //NSLog(@"bannerがスクリーンに表示される");
 }
 
